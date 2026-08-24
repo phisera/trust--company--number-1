@@ -13,6 +13,20 @@ config_version=5
 config/name="Trust (Company) Number 1"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
