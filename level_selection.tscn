@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://bixp6bi34a5dq"]
+[gd_scene load_steps=2 format=3 uid="uid://bixp6bi34a5dq"]
+
+[ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="1_tsd2a"]
 
 [node name="level_selection" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1918.0
+offset_bottom = 1075.0
+texture = ExtResource("1_tsd2a")
+
+[node name="level_1_button" type="Button" parent="."]
+offset_left = 57.0
+offset_top = 70.0
+offset_right = 137.0
+offset_bottom = 134.0
+text = "1"

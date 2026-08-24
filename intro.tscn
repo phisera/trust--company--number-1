@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://efhtbw51akf6"]
+[gd_scene load_steps=3 format=3 uid="uid://efhtbw51akf6"]
 
+[ext_resource type="Script" uid="uid://b1eaga5koddu" path="res://intro.gd" id="1_ayt76"]
 [ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="1_s2ta7"]
 
 [node name="intro" type="Node"]
+script = ExtResource("1_ayt76")
 
 [node name="background" type="TextureRect" parent="."]
 offset_right = 1916.0
@@ -13,7 +15,7 @@ texture = ExtResource("1_s2ta7")
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Button" type="Button" parent="intro"]
+[node name="skip_cutscene" type="Button" parent="intro"]
 layout_mode = 1
 anchors_preset = -1
 offset_left = 1386.0
@@ -21,3 +23,5 @@ offset_top = 854.0
 offset_right = 1863.0
 offset_bottom = 1029.0
 text = "skip cutscene"
+
+[connection signal="pressed" from="intro/skip_cutscene" to="." method="_on_skip_cutscene_pressed"]
