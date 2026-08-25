@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://j78oxdam3lgv"]
+[gd_scene load_steps=9 format=3 uid="uid://j78oxdam3lgv"]
+
+[ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://level_1.gd" id="1_hbghi"]
+[ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="2_hn12h"]
+[ext_resource type="Texture2D" uid="uid://cxulkp4a7mkmw" path="res://assets/rooms/company_1.png" id="3_5hph3"]
+[ext_resource type="Texture2D" uid="uid://ogoaht7a8mjj" path="res://assets/rooms/company_2.png" id="4_j7kpp"]
+[ext_resource type="Texture2D" uid="uid://coyf3wge6uyxg" path="res://assets/rooms/company_3.png" id="5_bjebc"]
+[ext_resource type="Texture2D" uid="uid://d2vs0y6dap75a" path="res://assets/employees/dot.jpeg" id="6_5rr72"]
+[ext_resource type="Script" uid="uid://03o30paaexpg" path="res://employee.gd" id="7_j7kpp"]
+[ext_resource type="Script" uid="uid://bmlwbj7sc62ii" path="res://employee_2.gd" id="8_bjebc"]
 
 [node name="Level 1" type="Node2D"]
+script = ExtResource("1_hbghi")
+
+[node name="background" type="TextureRect" parent="."]
+offset_right = 1922.0
+offset_bottom = 1084.0
+texture = ExtResource("2_hn12h")
+
+[node name="1" type="Sprite2D" parent="." groups=["rooms"]]
+position = Vector2(493, 837)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_5hph3")
+
+[node name="2" type="Sprite2D" parent="." groups=["rooms"]]
+position = Vector2(981, 835)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_j7kpp")
+
+[node name="3" type="Sprite2D" parent="." groups=["rooms"]]
+position = Vector2(1472, 838)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_bjebc")
+
+[node name="employee" type="Sprite2D" parent="." groups=["employee"]]
+position = Vector2(382, 904)
+scale = Vector2(0.292969, 0.298828)
+texture = ExtResource("6_5rr72")
+script = ExtResource("7_j7kpp")
+
+[node name="employee2" type="Sprite2D" parent="." groups=["employee"]]
+position = Vector2(1108, 914)
+scale = Vector2(0.292969, 0.298828)
+texture = ExtResource("6_5rr72")
+script = ExtResource("8_bjebc")
+
+[node name="company statement" type="CanvasLayer" parent="."]
+
+[node name="next quarter" type="Button" parent="."]
+offset_left = 1737.0
+offset_top = 936.0
+offset_right = 1898.0
+offset_bottom = 1047.0
+text = "Next Quarter"
+
+[connection signal="pressed" from="next quarter" to="." method="_on_next_quarter_pressed"]
