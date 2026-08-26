@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dc5dvxfybi0wi"
+path="res://.godot/imported/typing_noises.ogg-b64da3c07c08835c64be69fbd9ae5a0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/typing_noises.ogg"
+dest_files=["res://.godot/imported/typing_noises.ogg-b64da3c07c08835c64be69fbd9ae5a0c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

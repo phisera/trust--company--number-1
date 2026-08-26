@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var paper: Control = $StatementLayer/Paper
+@onready var paper: CanvasLayer = $"company statement"
 
 const INCOME_PER_EMP := 100
 const STEAL := 300
@@ -76,3 +76,6 @@ func show_statement(offset := 0) -> void:
 func _input(e: InputEvent) -> void:
 	if e is InputEventMouseButton and e.pressed and paper.visible:
 		paper.hide()
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://level_selection.tscn")

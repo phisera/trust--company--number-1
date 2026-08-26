@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxulkp4a7mkmw"
-path="res://.godot/imported/company_1.png-19ce953b38747c90caeca4730262984f.ctex"
+uid="uid://b51hpw1npmew7"
+path="res://.godot/imported/dangle.png-d1d8ddbeb25607cbcaa5467bfb157aa0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rooms/company_1.png"
-dest_files=["res://.godot/imported/company_1.png-19ce953b38747c90caeca4730262984f.ctex"]
+source_file="res://assets/employees/animations/dangle.png"
+dest_files=["res://.godot/imported/dangle.png-d1d8ddbeb25607cbcaa5467bfb157aa0.ctex"]
 
 [params]
 

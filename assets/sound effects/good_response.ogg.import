@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhgfsnvoualmb"
+path="res://.godot/imported/good_response.ogg-61cc2364015d562ee87ee52c1bf73a13.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound effects/good_response.ogg"
+dest_files=["res://.godot/imported/good_response.ogg-61cc2364015d562ee87ee52c1bf73a13.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,13 +1,40 @@
-[gd_scene load_steps=9 format=3 uid="uid://j78oxdam3lgv"]
+[gd_scene load_steps=12 format=3 uid="uid://j78oxdam3lgv"]
 
 [ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://level_1.gd" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="2_hn12h"]
-[ext_resource type="Texture2D" uid="uid://cxulkp4a7mkmw" path="res://assets/rooms/company_1.png" id="3_5hph3"]
-[ext_resource type="Texture2D" uid="uid://ogoaht7a8mjj" path="res://assets/rooms/company_2.png" id="4_j7kpp"]
-[ext_resource type="Texture2D" uid="uid://coyf3wge6uyxg" path="res://assets/rooms/company_3.png" id="5_bjebc"]
-[ext_resource type="Texture2D" uid="uid://d2vs0y6dap75a" path="res://assets/employees/dot.jpeg" id="6_5rr72"]
+[ext_resource type="Texture2D" uid="uid://dj2xy8iyi62pl" path="res://assets/rooms/comp1.png" id="3_bjebc"]
+[ext_resource type="Texture2D" uid="uid://bfk17hn2mi6em" path="res://assets/rooms/comp2.png" id="4_5rr72"]
+[ext_resource type="Texture2D" uid="uid://n8mvn4tfrujy" path="res://assets/rooms/comp3.png" id="5_gyffv"]
+[ext_resource type="Texture2D" uid="uid://b51hpw1npmew7" path="res://assets/employees/animations/dangle.png" id="6_gyffv"]
+[ext_resource type="Texture2D" uid="uid://4kwd3hitcege" path="res://assets/employees/animations/type_1.png" id="7_1pe0h"]
 [ext_resource type="Script" uid="uid://03o30paaexpg" path="res://employee.gd" id="7_j7kpp"]
-[ext_resource type="Script" uid="uid://bmlwbj7sc62ii" path="res://employee_2.gd" id="8_bjebc"]
+[ext_resource type="Texture2D" uid="uid://cnu816ogdjy0x" path="res://assets/employees/animations/type_2.png" id="8_27bay"]
+[ext_resource type="Texture2D" uid="uid://cawlgb82oqvl3" path="res://assets/employees/animations/type_3.png" id="9_sof0w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ggavl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_gyffv")
+}],
+"loop": false,
+"name": &"dangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_1pe0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_27bay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sof0w")
+}],
+"loop": true,
+"name": &"type",
+"speed": 6.0
+}]
 
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_hbghi")
@@ -18,31 +45,117 @@ offset_bottom = 1084.0
 texture = ExtResource("2_hn12h")
 
 [node name="1" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(493, 837)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("3_5hph3")
+position = Vector2(520, 857)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_bjebc")
+
+[node name="leftback" type="Marker2D" parent="1" groups=["seats"]]
+position = Vector2(-28, 38.4)
+metadata/flip = true
+metadata/size = 0.75
+
+[node name="leftmiddle" type="Marker2D" parent="1" groups=["seats"]]
+position = Vector2(-40, 76)
+scale = Vector2(1, 1)
+metadata/flip = true
+metadata/size = 0.8
+
+[node name="leftfront" type="Marker2D" parent="1" groups=["seats"]]
+position = Vector2(-55.2, 120.8)
+scale = Vector2(1, 1)
+metadata/flip = true
+
+[node name="rightback" type="Marker2D" parent="1" groups=["seats"]]
+position = Vector2(18.4, 37.6)
+scale = Vector2(1, 1)
+metadata/size = 0.75
+
+[node name="rightmiddle" type="Marker2D" parent="1" groups=["seats"]]
+position = Vector2(33.6, 74.4)
+scale = Vector2(1, 1)
+metadata/size = 0.8
+
+[node name="rightfront" type="Marker2D" parent="1" groups=["seats"]]
+position = Vector2(55.2, 126.4)
+scale = Vector2(0.999999, 0.999999)
 
 [node name="2" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(981, 835)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("4_j7kpp")
+position = Vector2(984, 854)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("4_5rr72")
+
+[node name="leftback" type="Marker2D" parent="2" groups=["seats"]]
+position = Vector2(-28, 38.4)
+metadata/flip = true
+metadata/size = 0.75
+
+[node name="leftmiddle" type="Marker2D" parent="2" groups=["seats"]]
+position = Vector2(-40, 76)
+scale = Vector2(1, 1)
+metadata/flip = true
+metadata/size = 0.8
+
+[node name="leftfront" type="Marker2D" parent="2" groups=["seats"]]
+position = Vector2(-55.2, 120.8)
+scale = Vector2(1, 1)
+metadata/flip = true
+
+[node name="rightback" type="Marker2D" parent="2" groups=["seats"]]
+position = Vector2(18.4, 37.6)
+scale = Vector2(1, 1)
+metadata/size = 0.75
+
+[node name="rightmiddle" type="Marker2D" parent="2" groups=["seats"]]
+position = Vector2(33.6, 74.4)
+scale = Vector2(1, 1)
+metadata/size = 0.8
+
+[node name="rightfront" type="Marker2D" parent="2" groups=["seats"]]
+position = Vector2(55.2, 126.4)
+scale = Vector2(0.999999, 0.999999)
 
 [node name="3" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(1472, 838)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("5_bjebc")
+position = Vector2(1444, 854)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("5_gyffv")
 
-[node name="employee" type="Sprite2D" parent="." groups=["employee"]]
-position = Vector2(382, 904)
-scale = Vector2(0.292969, 0.298828)
-texture = ExtResource("6_5rr72")
+[node name="leftback" type="Marker2D" parent="3" groups=["seats"]]
+position = Vector2(-28, 38.4)
+metadata/flip = true
+metadata/size = 0.75
+
+[node name="leftmiddle" type="Marker2D" parent="3" groups=["seats"]]
+position = Vector2(-40, 76)
+scale = Vector2(1, 1)
+metadata/flip = true
+metadata/size = 0.8
+
+[node name="leftfront" type="Marker2D" parent="3" groups=["seats"]]
+position = Vector2(-55.2, 120.8)
+scale = Vector2(1, 1)
+metadata/flip = true
+
+[node name="rightback" type="Marker2D" parent="3" groups=["seats"]]
+position = Vector2(18.4, 37.6)
+scale = Vector2(1, 1)
+metadata/size = 0.75
+
+[node name="rightmiddle" type="Marker2D" parent="3" groups=["seats"]]
+position = Vector2(33.6, 74.4)
+scale = Vector2(1, 1)
+metadata/size = 0.8
+
+[node name="rightfront" type="Marker2D" parent="3" groups=["seats"]]
+position = Vector2(55.2, 126.4)
+scale = Vector2(0.999999, 0.999999)
+
+[node name="employee" type="AnimatedSprite2D" parent="." groups=["employee"]]
+position = Vector2(669, 852)
+scale = Vector2(1, 1.021)
+sprite_frames = SubResource("SpriteFrames_ggavl")
+animation = &"type"
+offset = Vector2(0, -30)
 script = ExtResource("7_j7kpp")
-
-[node name="employee2" type="Sprite2D" parent="." groups=["employee"]]
-position = Vector2(1108, 914)
-scale = Vector2(0.292969, 0.298828)
-texture = ExtResource("6_5rr72")
-script = ExtResource("8_bjebc")
 
 [node name="company statement" type="CanvasLayer" parent="."]
 
@@ -53,4 +166,26 @@ offset_right = 1898.0
 offset_bottom = 1047.0
 text = "Next Quarter"
 
+[node name="help" type="Button" parent="."]
+offset_left = 1831.0
+offset_top = 15.0
+offset_right = 1911.0
+offset_bottom = 83.0
+text = "?"
+
+[node name="view previous statement" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 899.0
+offset_right = 205.0
+offset_bottom = 1051.0
+text = "view prev. statement"
+
+[node name="back" type="Button" parent="."]
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 131.0
+offset_bottom = 104.0
+text = "<--"
+
 [connection signal="pressed" from="next quarter" to="." method="_on_next_quarter_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

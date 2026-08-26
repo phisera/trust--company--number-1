@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d53ycrn335ui"]
+[gd_scene load_steps=5 format=3 uid="uid://d53ycrn335ui"]
 
 [ext_resource type="Script" uid="uid://bhuujqqeaiy8" path="res://title.gd" id="1_kpexm"]
-[ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="1_y7k74"]
-[ext_resource type="Theme" uid="uid://beshn3xmv68sp" path="res://assets/themes/prototyping_simple_black.tres" id="2_oyqm6"]
+[ext_resource type="Texture2D" uid="uid://chkvo3bac0kru" path="res://assets/backgrounds/bg_title.png" id="2_3xoar"]
+[ext_resource type="Script" uid="uid://dj4oropday51h" path="res://credits.gd" id="3_mom7w"]
+[ext_resource type="FontFile" uid="uid://bbdpra6hlr8fw" path="res://assets/fonts/Schoolbell/Schoolbell-Regular.ttf" id="4_7lgly"]
 
 [node name="Title" type="Node2D"]
 script = ExtResource("1_kpexm")
@@ -10,38 +11,33 @@ script = ExtResource("1_kpexm")
 [node name="Title Screen" type="TextureRect" parent="."]
 offset_right = 1923.0
 offset_bottom = 1083.0
-texture = ExtResource("1_y7k74")
+texture = ExtResource("2_3xoar")
 stretch_mode = 6
 
 [node name="start_button" type="Button" parent="."]
-offset_left = 56.0
-offset_top = 755.0
-offset_right = 748.0
-offset_bottom = 1006.0
+offset_left = 1200.0
+offset_top = 55.0
+offset_right = 1892.0
+offset_bottom = 306.0
 text = "Start"
 
 [node name="level_selection_button" type="Button" parent="."]
-offset_left = 769.0
-offset_top = 754.0
-offset_right = 1461.0
-offset_bottom = 1005.0
+offset_left = 1252.0
+offset_top = 471.0
+offset_right = 1888.0
+offset_bottom = 721.0
 text = "Level Selection"
 
 [node name="credits" type="Button" parent="."]
-offset_left = 1494.0
-offset_top = 756.0
-offset_right = 1842.0
-offset_bottom = 1008.0
+offset_left = 1583.0
+offset_top = 839.0
+offset_right = 1889.0
+offset_bottom = 1044.0
 text = "credits
 "
-
-[node name="placeholder_title" type="RichTextLabel" parent="."]
-offset_left = 116.0
-offset_top = 36.0
-offset_right = 1774.0
-offset_bottom = 726.0
-theme = ExtResource("2_oyqm6")
-text = "INSERT TITLE HERE"
+script = ExtResource("3_mom7w")
+credits_font = ExtResource("4_7lgly")
+font_size = 30
 
 [connection signal="pressed" from="start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="level_selection_button" to="." method="_on_level_selection_button_pressed"]
