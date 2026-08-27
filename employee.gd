@@ -26,6 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			z_index = 100
 			flip_h = false
 			play("dangle")
+			scale = Vector2.ONE
 			get_viewport().set_input_as_handled()
 		elif _dragging and not event.pressed:
 			_dragging = false
@@ -36,7 +37,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _drop() -> void:
 	var room := _room_under(global_position)
-	var s := _nearest_free_seat(room) if room != "" else null
+	var s: Node2D = null
+	if room != "" and not _room_node(room).is_full():
+		s = _nearest_free_seat(room)
 	if s == null:
 		seat = _prev_seat
 		global_position = _home
@@ -51,7 +54,6 @@ func _sit(s: Node2D) -> void:
 	seat = s
 	flip_h = s.get_meta("flip", false)
 	play("type")
-	create_tween().tween_property(self, "global_position", s.global_position, 0.15)
 	var t := create_tween().set_parallel()
 	t.tween_property(self, "global_position", s.global_position, 0.15)
 	t.tween_property(self, "scale", Vector2.ONE * s.get_meta("size", 1.0), 0.15)
@@ -85,3 +87,9 @@ func _seat_taken(s: Node2D) -> bool:
 		if e != self and e.seat == s:
 			return true
 	return false
+	
+func _room_node(room_name: String) -> Node2D:
+	for r: Node2D in get_tree().get_nodes_in_group("rooms"):
+		if r.name == room_name:
+			return r
+	return null

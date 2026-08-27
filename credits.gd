@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 @export var credits_font: Font
 @export var font_size := 28
@@ -28,6 +28,9 @@ var _popup: PanelContainer
 
 func _ready() -> void:
 	pressed.connect(_toggle)
+	var bm := BitMap.new()
+	bm.create_from_image_alpha(texture_normal.get_image())
+	texture_click_mask = bm
 
 	var label := Label.new()
 	label.text = CREDITS
