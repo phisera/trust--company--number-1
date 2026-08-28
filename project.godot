@@ -28,6 +28,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")
 
+[internationalization]
+
+locale/translations_pot_files=PackedStringArray("res://tutorial.dialogue")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
