@@ -1,81 +1,166 @@
 extends Node2D
 
-@onready var paper: CanvasLayer = $"company statement"
-
-const INCOME_PER_EMP := 100
-const STEAL := 300
+const PROFIT_GOOD := 100
+const FEE_PER_COMPANY := 100
+const WASTE := 100
 const START_FORTUNE := 2000
 const THIEF_COUNT := 1
 const SAFEHOUSE_NAME := "1"
+
+@export var next_level: PackedScene
+@export var statement_font: Font
+@export var statement_font_size := 26
+@export var money_label: RichTextLabel
+@export var money_font: Font
+@export var money_font_size := 40
 
 var fortune := START_FORTUNE
 var quarter := 0
 var history: Array[String] = []
 var _paper: PanelContainer
+var _text: Label
+var _nav_row: HBoxContainer
+var _view := 0
 
 func _ready() -> void:
+	$"next quarter".pressed.connect(end_quarter)
+	$"view previous statement".pressed.connect(open_statement_browser)
+	if money_label:
+		if money_font:
+			money_label.add_theme_font_override("normal_font", money_font)
+		money_label.add_theme_font_size_override("normal_font_size", money_font_size)
 	await get_tree().process_frame
 	var emps := employees().filter(func(e): return e.company != SAFEHOUSE_NAME)
 	emps.shuffle()
 	for i in mini(THIEF_COUNT, emps.size()):
 		emps[i].is_thief = true
+	_build_paper()
+	_update_money()
 
 func rooms() -> Array: return get_tree().get_nodes_in_group("rooms")
 func employees() -> Array: return get_tree().get_nodes_in_group("employees")
 
-func employees_in(room_name: String) -> Array:
-	return employees().filter(func(e): return e.company == room_name)
-
 func thieves_in(room_name: String) -> int:
-	return employees_in(room_name).filter(func(e): return e.is_thief).size()
-
-func _on_next_quarter_pressed() -> void:
-	quarter += 1
-	var doc := "      QUARTERLY STATEMENT — Q%d\n" % quarter
-	var total := 0
-	for room in rooms():
-		var n: int = employees_in(room.name).size()
-		var income := INCOME_PER_EMP * n
-		var theft := 0 if room.name == SAFEHOUSE_NAME else STEAL * thieves_in(room.name)
-		var final := -theft
-
-		doc += "\n[ %s ]\n" % room.name
-		doc += _line("income", income)
-		doc += _line("salaries", -income)
-		if theft > 0:
-			doc += _line("fees", -theft)
-		doc += _line("FINAL", final)
-		total += final
-
-	fortune += total
-	doc += "\n" + _line("FORTUNE", fortune)
-	history.append(doc)
-	show_statement()
-
-	if fortune <= 0:
-		print("GAME OVER")
-	elif _all_thieves_parked():
-		print("YOU WIN")
-
-func _all_thieves_parked() -> bool:
+	var n := 0
 	for e in employees():
-		if e.is_thief and e.company != SAFEHOUSE_NAME:
-			return false
-	return true
+		if e.company == room_name and e.is_thief:
+			n += 1
+	return n
+
+func innocents_in(room_name: String) -> int:
+	var n := 0
+	for e in employees():
+		if e.company == room_name and not e.is_thief:
+			n += 1
+	return n
+
+func end_quarter() -> void:
+	quarter += 1
+	var earned := 0
+	var doc := "   COMPANY STATEMENT — Q%d\n\n" % quarter
+	for room in rooms():
+		var bad: bool = room.name != SAFEHOUSE_NAME and thieves_in(room.name) > 0
+		var income := 0 if bad else PROFIT_GOOD
+		doc += _line(room.name, income)
+		earned += income
+	var fees: int = rooms().size() * FEE_PER_COMPANY
+	doc += _line("fees", -fees)
+	var waste := WASTE * innocents_in(SAFEHOUSE_NAME)
+	if waste > 0:
+		doc += _line("wasted salary", -waste)
+	var total := earned - fees - waste
+	doc += "\n"
+	doc += _line("TOTAL", total)
+	fortune += total
+	doc += _line("FORTUNE", fortune)
+	history.append(doc)
+	_update_money()
+	_show_at(history.size() - 1, false)
+	if fortune <= 0:
+		_lose()
+	elif total == 0:
+		_win()
+
+func _update_money() -> void:
+	if money_label:
+		money_label.text = "$%d" % fortune
+
+func _win() -> void:
+	print("LEVEL WON")
+	await get_tree().create_timer(2.0).timeout
+	if next_level:
+		get_tree().change_scene_to_packed(next_level)
+
+func _lose() -> void:
+	print("GAME OVER")
 
 func _line(item: String, amount: int) -> String:
-	var amt := ("+$%d" if amount >= 0 else "-$%d") % absi(amount)
-	return "  %s %s\n" % [item.rpad(22, "."), amt.lpad(7, " ")]
+	var amt: String
+	if amount > 0: amt = "+$%d" % amount
+	elif amount < 0: amt = "-$%d" % -amount
+	else: amt = "$0"
+	return "  %s %s\n" % [item.rpad(18, "."), amt.lpad(7, " ")]
 
-func show_statement(offset := 0) -> void:
-	var idx := history.size() - 1 + offset
-	if idx < 0: return
-	paper.get_node("Margin/Text").text = history[idx]
-	paper.show()
-	
-func _input(e: InputEvent) -> void:
-	if e is InputEventMouseButton and e.pressed and paper.visible:
-		paper.hide()
+func _build_paper() -> void:
+	_paper = PanelContainer.new()
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color.WHITE
+	style.border_color = Color.BLACK
+	style.set_border_width_all(5)
+	style.set_content_margin_all(36)
+	_paper.add_theme_stylebox_override("panel", style)
 
-func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file("res://level_selection.tscn")
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 16)
+	_paper.add_child(col)
+
+	_text = Label.new()
+	if statement_font:
+		_text.add_theme_font_override("font", statement_font)
+	else:
+		var mono := SystemFont.new()
+		mono.font_names = ["Courier New", "Menlo", "monospace"]
+		_text.add_theme_font_override("font", mono)
+	_text.add_theme_font_size_override("font_size", statement_font_size)
+	_text.add_theme_color_override("font_color", Color.BLACK)
+	col.add_child(_text)
+
+	_nav_row = HBoxContainer.new()
+	_nav_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	_nav_row.add_theme_constant_override("separation", 24)
+	col.add_child(_nav_row)
+	for pair in [["<", -1], ["x", 0], [">", 1]]:
+		var b := Button.new()
+		b.text = pair[0]
+		b.custom_minimum_size = Vector2(56, 44)
+		b.pressed.connect(_nav.bind(pair[1]))
+		_nav_row.add_child(b)
+
+	_paper.hide()
+	_paper.gui_input.connect(func(e):
+		if e is InputEventMouseButton and e.pressed and not _nav_row.visible:
+			_paper.hide())
+	var layer := CanvasLayer.new()
+	layer.layer = 5
+	layer.add_child(_paper)
+	add_child(layer)
+
+func _nav(dir: int) -> void:
+	if dir == 0:
+		_paper.hide()
+		return
+	_show_at(_view + dir, true)
+
+func open_statement_browser() -> void:
+	_show_at(history.size() - 1, true)
+
+func _show_at(idx: int, with_nav: bool) -> void:
+	if history.is_empty():
+		return
+	_view = clampi(idx, 0, history.size() - 1)
+	_text.text = history[_view]
+	_nav_row.visible = with_nav
+	_paper.reset_size()
+	_paper.show()
+	await get_tree().process_frame
+	_paper.position = (get_viewport_rect().size - _paper.size) / 2.0

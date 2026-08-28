@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cawlgb82oqvl3"
-path="res://.godot/imported/type_3.png-9d4b227dee807f2baf376da9dc25415a.ctex"
+uid="uid://co5fn7q2o8xa8"
+path="res://.godot/imported/emp5_dangle.png-e13a372f993451090d31cc5e8c729ae5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/employees/animations/type_3.png"
-dest_files=["res://.godot/imported/type_3.png-9d4b227dee807f2baf376da9dc25415a.ctex"]
+source_file="res://assets/employees/typer/typer5/emp5_dangle.png"
+dest_files=["res://.godot/imported/emp5_dangle.png-e13a372f993451090d31cc5e8c729ae5.ctex"]
 
 [params]
 

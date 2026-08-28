@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnu816ogdjy0x"
-path="res://.godot/imported/type_2.png-c7dd4d45d112c9efcec6013a5ecb4f67.ctex"
+uid="uid://cnrbnifne5nk1"
+path="res://.godot/imported/sleep2_dangle.png-8ebe62980ae731bf7bcd75c1ae403876.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/employees/animations/type_2.png"
-dest_files=["res://.godot/imported/type_2.png-c7dd4d45d112c9efcec6013a5ecb4f67.ctex"]
+source_file="res://assets/employees/sleeper/sleeper2/sleep2_dangle.png"
+dest_files=["res://.godot/imported/sleep2_dangle.png-8ebe62980ae731bf7bcd75c1ae403876.ctex"]
 
 [params]
 

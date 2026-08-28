@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsvvxqsfh4qeg"
-path="res://.godot/imported/greybox.webp-bb51fad9d10d6b0074cfa3fbe612c0c4.ctex"
+uid="uid://b3pykysomf3to"
+path="res://.godot/imported/sleep6_2.png-00036002fd09e0e54108a47af17e4e78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://greybox.webp"
-dest_files=["res://.godot/imported/greybox.webp-bb51fad9d10d6b0074cfa3fbe612c0c4.ctex"]
+source_file="res://assets/employees/sleeper/sleeper6/sleep6_2.png"
+dest_files=["res://.godot/imported/sleep6_2.png-00036002fd09e0e54108a47af17e4e78.ctex"]
 
 [params]
 
