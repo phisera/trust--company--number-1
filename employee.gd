@@ -1,7 +1,7 @@
 extends AnimatedSprite2D
 
 var company := ""
-var is_thief := true
+@export var is_thief := false
 var seat: Node2D = null
 var _dragging := false
 var _prev_seat: Node2D = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://j78oxdam3lgv"]
+[gd_scene load_steps=32 format=3 uid="uid://j78oxdam3lgv"]
 
 [ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://level_1.gd" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_3o2xh"]
@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://cg80r0q6r62m6" path="res://assets/employees/sleeper/sleeper1/sleep1_1.png" id="21_ethxx"]
 [ext_resource type="Texture2D" uid="uid://ccw3pmi7t8s51" path="res://assets/employees/sleeper/sleeper1/sleep1_2.png" id="22_3o2xh"]
 [ext_resource type="Script" uid="uid://dg2q5yhxpo65j" path="res://employee_3.gd" id="24_3o2xh"]
+[ext_resource type="Texture2D" uid="uid://0nq1xtwwo8av" path="res://assets/buttons/view prev.png" id="26_b6mmh"]
+[ext_resource type="Script" uid="uid://6yoq41edu6rm" path="res://view_previous_statement.gd" id="27_ttn6t"]
+[ext_resource type="Texture2D" uid="uid://dgd6rvfis6qfy" path="res://assets/buttons/blank button.png" id="28_ia5ws"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ggavl"]
 animations = [{
@@ -101,7 +104,7 @@ animations = [{
 [node name="Level 1" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_hbghi")
 statement_font = ExtResource("2_duihb")
-money_label = NodePath("current money")
+money_label = NodePath("blank/current money")
 money_font = ExtResource("6_sof0w")
 money_font_size = 45
 
@@ -119,128 +122,104 @@ offset_right = 1706.0
 offset_bottom = 1082.0
 texture = ExtResource("3_27bay")
 
-[node name="1" type="Sprite2D" parent="." groups=["rooms"]]
+[node name="innovative hot dogs" type="Sprite2D" parent="." groups=["rooms"]]
 position = Vector2(520, 857)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("3_bjebc")
 script = ExtResource("5_sof0w")
 label_font = ExtResource("6_sof0w")
 
-[node name="leftback" type="Marker2D" parent="1" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="innovative hot dogs" groups=["seats"]]
 position = Vector2(-28, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="1" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="innovative hot dogs" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="1" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="innovative hot dogs" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="1" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="innovative hot dogs" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="1" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="innovative hot dogs" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="1" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="innovative hot dogs" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="2" type="Sprite2D" parent="." groups=["rooms"]]
+[node name="pig supremacy" type="Sprite2D" parent="." groups=["rooms"]]
 position = Vector2(984, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_5rr72")
 script = ExtResource("8_ggavl")
 label_font = ExtResource("6_sof0w")
 
-[node name="leftback" type="Marker2D" parent="2" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="pig supremacy" groups=["seats"]]
 position = Vector2(-28, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="2" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="pig supremacy" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="2" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="pig supremacy" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="2" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="pig supremacy" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="2" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="pig supremacy" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="2" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="pig supremacy" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="3" type="Sprite2D" parent="." groups=["rooms"]]
+[node name="shoe-dini shoes" type="Sprite2D" parent="." groups=["rooms"]]
 position = Vector2(1444, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("5_gyffv")
 script = ExtResource("10_ubhxj")
 label_font = ExtResource("6_sof0w")
 
-[node name="leftback" type="Marker2D" parent="3" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(-27.2, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="3" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="3" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="3" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="3" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="3" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
-
-[node name="employee" type="AnimatedSprite2D" parent="." groups=["employee"]]
-position = Vector2(571, 949)
-scale = Vector2(1, 1.021)
-sprite_frames = SubResource("SpriteFrames_ggavl")
-animation = &"dangle"
-offset = Vector2(0, -30)
-script = ExtResource("7_j7kpp")
-
-[node name="employee2" type="AnimatedSprite2D" parent="." groups=["employee"]]
-position = Vector2(447, 1006)
-scale = Vector2(1, 1.021)
-sprite_frames = SubResource("SpriteFrames_ethxx")
-animation = &"type"
-offset = Vector2(0, -30)
-script = ExtResource("8_bjebc")
-
-[node name="employee3" type="AnimatedSprite2D" parent="." groups=["employee"]]
-position = Vector2(937, 900)
-scale = Vector2(1, 1.021)
-sprite_frames = SubResource("SpriteFrames_duihb")
-animation = &"sleep"
-offset = Vector2(0, -30)
-script = ExtResource("24_3o2xh")
 
 [node name="next quarter" type="Button" parent="."]
 offset_left = 1737.0
@@ -256,12 +235,15 @@ offset_right = 1911.0
 offset_bottom = 83.0
 text = "?"
 
-[node name="view previous statement" type="Button" parent="."]
-offset_left = 1730.0
-offset_top = 738.0
-offset_right = 1901.0
-offset_bottom = 890.0
-text = "view prev. statement"
+[node name="view previous statement" type="TextureButton" parent="."]
+offset_left = 1689.0
+offset_top = 718.0
+offset_right = 2039.0
+offset_bottom = 1068.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("26_b6mmh")
+stretch_mode = 6
+script = ExtResource("27_ttn6t")
 
 [node name="back" type="Button" parent="."]
 offset_left = 22.0
@@ -270,11 +252,44 @@ offset_right = 131.0
 offset_bottom = 104.0
 text = "<--"
 
-[node name="current money" type="RichTextLabel" parent="."]
-offset_left = 68.0
-offset_top = 983.0
-offset_right = 247.0
-offset_bottom = 1062.0
+[node name="blank" type="Sprite2D" parent="."]
+position = Vector2(114, 1008)
+scale = Vector2(0.597143, 0.582857)
+texture = ExtResource("28_ia5ws")
+
+[node name="current money" type="RichTextLabel" parent="blank"]
+offset_left = -45.2153
+offset_top = -6.86292
+offset_right = 133.785
+offset_bottom = 72.1371
+
+[node name="employees" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="employee" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
+position = Vector2(445, 974)
+scale = Vector2(1, 1.021)
+sprite_frames = SubResource("SpriteFrames_ggavl")
+animation = &"dangle"
+offset = Vector2(0, -30)
+script = ExtResource("7_j7kpp")
+
+[node name="employee2" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
+position = Vector2(1382, 994)
+scale = Vector2(1, 1.021)
+sprite_frames = SubResource("SpriteFrames_ethxx")
+animation = &"type"
+offset = Vector2(0, -30)
+script = ExtResource("8_bjebc")
+is_thief = true
+
+[node name="employee3" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
+position = Vector2(937, 900)
+scale = Vector2(1, 1.021)
+sprite_frames = SubResource("SpriteFrames_duihb")
+animation = &"sleep"
+offset = Vector2(0, -30)
+script = ExtResource("24_3o2xh")
 
 [connection signal="pressed" from="next quarter" to="." method="_on_next_quarter_pressed"]
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
