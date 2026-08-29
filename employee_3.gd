@@ -1,5 +1,9 @@
 extends AnimatedSprite2D
 
+@export var snore_sound: AudioStream
+@export var typing_sound: AudioStream
+var _sfx: AudioStreamPlayer2D
+
 var company := ""
 @export var is_thief := false
 var seat: Node2D = null
@@ -15,6 +19,18 @@ func _ready() -> void:
 		_sit(s)
 	else:
 		play("sleep")
+		
+func _update_sound() -> void:
+	var s: AudioStream = null
+	if animation == "sleep": s = snore_sound
+	elif animation == "type": s = typing_sound
+	if _sfx.stream == s and _sfx.playing:
+		return
+	_sfx.stop()
+	_sfx.stream = s
+	if s:
+		_sfx.pitch_scale = randf_range(0.85, 1.15)
+		_sfx.play()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

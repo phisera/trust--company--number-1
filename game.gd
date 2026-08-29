@@ -15,7 +15,10 @@ const RED := "#c0392b"
 @export var money_font: Font
 @export var money_font_size := 40
 @export var tutorial_mode := false
+const sfx_win := preload("res://assets/sound effects/good_response.ogg")
+const sfx_lose := preload("res://assets/sound effects/bad_response.ogg")
 
+var _sfx: AudioStreamPlayer
 var fortune := 0
 var quarter := 0
 var history: Array[String] = []
@@ -26,8 +29,11 @@ var _view := 0
 
 func _ready() -> void:
 	fortune = start_fortune
+	_sfx = AudioStreamPlayer.new()
+	add_child(_sfx)
 	$"next quarter".pressed.connect(end_quarter)
 	$"view previous statement".pressed.connect(open_statement_browser)
+	$"back".pressed.connect(_on_back_pressed)
 	if money_label:
 		if money_font:
 			money_label.add_theme_font_override("normal_font", money_font)
@@ -35,7 +41,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_build_paper()
 	_update_money()
-	DialogueManager.show_dialogue_balloon(load("res://tutorial.dialogue"), "start")
+	if tutorial_mode:
+		DialogueManager.show_dialogue_balloon(load("res://tutorial.dialogue"), "start")
 
 func rooms() -> Array: return get_tree().get_nodes_in_group("rooms")
 func employees() -> Array: return get_tree().get_nodes_in_group("employees")
@@ -90,6 +97,10 @@ func _update_money() -> void:
 		money_label.text = "$%d" % fortune
 
 func _win() -> void:
+	if sfx_win: _sfx.stream = sfx_win; _sfx.play()
+	_sfx.volume_db = -20.0
+	_sfx.stream = sfx_win
+	_sfx.play()
 	Tutorial.notify_level_won()
 	if tutorial_mode:
 		await Tutorial.outro_done
@@ -99,11 +110,12 @@ func _win() -> void:
 	if popups:
 		popups.show_win(next_level)
 	else:
-		push_warning("No Popups node in this scene")
+		push_warning("No popups node in this scene")
 		if next_level:
 			get_tree().change_scene_to_packed(next_level)
 
 func _lose() -> void:
+	if sfx_lose: _sfx.stream = sfx_lose; _sfx.play()
 	$popups.show_game_over()
 	
 func _line(item: String, amount: int, signed := true) -> String:

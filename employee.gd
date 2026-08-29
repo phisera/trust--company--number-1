@@ -1,20 +1,36 @@
 extends AnimatedSprite2D
 
-var company := ""
+enum WorkAnim { TYPE, SLEEP }
+
+@export var work_anim := WorkAnim.TYPE
 @export var is_thief := false
+const snore_sound := preload("res://assets/sound effects/snoring.ogg")
+const typing_sound := preload("res://assets/sound effects/typing_noises.ogg")
+
+var _sfx: AudioStreamPlayer2D
+var company := ""
 var seat: Node2D = null
 var _dragging := false
 var _prev_seat: Node2D = null
 var _home := Vector2.ZERO
 
+func _work_name() -> String:
+	return "sleep" if work_anim == WorkAnim.SLEEP else "type"
+
 func _ready() -> void:
+	_sfx = AudioStreamPlayer2D.new()
+	_sfx.volume_db = -12.0
+	_sfx.finished.connect(func(): if _sfx.stream: _sfx.play())
+	add_child(_sfx)
+	animation_changed.connect(_update_sound)
+	_update_sound()
 	add_to_group("employees")
 	company = _room_under(global_position)
 	var s := _nearest_free_seat(company)
 	if s:
 		_sit(s)
 	else:
-		play("type")
+		play(_work_name())
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -35,6 +51,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion and _dragging:
 		global_position = get_global_mouse_position()
 
+func _update_sound() -> void:
+	var s: AudioStream = null
+	if animation == "sleep": s = snore_sound
+	elif animation == "type": s = typing_sound
+	if _sfx.stream == s and _sfx.playing:
+		return
+	_sfx.stop()
+	_sfx.stream = s
+	if s:
+		_sfx.pitch_scale = randf_range(0.85, 1.15)
+		_sfx.play()
+
 func _drop() -> void:
 	var room := _room_under(global_position)
 	var s: Node2D = null
@@ -52,13 +80,15 @@ func _drop() -> void:
 
 func _sit(s: Node2D) -> void:
 	seat = s
-	flip_h = s.get_meta("flip", false)
-	play("type")
+	play(_work_name())
+	var f: bool = s.get_meta("flip", false)
+	flip_h = (not f) if work_anim == WorkAnim.SLEEP else f
 	var t := create_tween().set_parallel()
 	t.tween_property(self, "global_position", s.global_position, 0.15)
 	t.tween_property(self, "scale", Vector2.ONE * s.get_meta("size", 1.0), 0.15)
 
 func _mouse_on_me() -> bool:
+	if sprite_frames == null: return false
 	var tex := sprite_frames.get_frame_texture(animation, frame)
 	var size := tex.get_size() * scale.abs()
 	return Rect2(global_position - size / 2.0, size).has_point(get_global_mouse_position())
@@ -87,14 +117,20 @@ func _seat_taken(s: Node2D) -> bool:
 		if e != self and e.seat == s:
 			return true
 	return false
-	
+
 func _room_node(room_name: String) -> Node2D:
 	for r: Node2D in get_tree().get_nodes_in_group("rooms"):
 		if r.name == room_name:
 			return r
 	return null
-	
+
 func _room_full(room_name: String) -> bool:
+	var count := 0
+	for e in get_tree().get_nodes_in_group("employees"):
+		if e != self and e.company == room_name:
+			count += 1
+	if count >= 6:
+		return true
 	for r: Node2D in get_tree().get_nodes_in_group("rooms"):
 		if r.name == room_name and r.has_method("is_full"):
 			return r.is_full()

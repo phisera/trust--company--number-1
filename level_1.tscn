@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://j78oxdam3lgv"]
+[gd_scene load_steps=40 format=3 uid="uid://j78oxdam3lgv"]
 
 [ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://game.gd" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_3o2xh"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://4kwd3hitcege" path="res://assets/employees/typer/typer1/type_1.png" id="7_1pe0h"]
 [ext_resource type="Script" uid="uid://03o30paaexpg" path="res://employee.gd" id="7_j7kpp"]
 [ext_resource type="Texture2D" uid="uid://cnu816ogdjy0x" path="res://assets/employees/typer/typer1/type_2.png" id="8_27bay"]
-[ext_resource type="Script" uid="uid://bmlwbj7sc62ii" path="res://employee_2.gd" id="8_bjebc"]
 [ext_resource type="Script" uid="uid://bn0myj8vfc8w4" path="res://2.gd" id="8_ggavl"]
 [ext_resource type="Texture2D" uid="uid://cawlgb82oqvl3" path="res://assets/employees/typer/typer1/type_3.png" id="9_sof0w"]
 [ext_resource type="Script" uid="uid://drtf0v6vf0uqd" path="res://3.gd" id="10_ubhxj"]
@@ -31,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://skqbuir68eix" path="res://assets/employees/sleeper/sleeper1/sleep1_dangle.png" id="20_lfy8a"]
 [ext_resource type="Texture2D" uid="uid://cg80r0q6r62m6" path="res://assets/employees/sleeper/sleeper1/sleep1_1.png" id="21_ethxx"]
 [ext_resource type="Texture2D" uid="uid://ccw3pmi7t8s51" path="res://assets/employees/sleeper/sleeper1/sleep1_2.png" id="22_3o2xh"]
-[ext_resource type="Script" uid="uid://dg2q5yhxpo65j" path="res://employee_3.gd" id="24_3o2xh"]
 [ext_resource type="Texture2D" uid="uid://0nq1xtwwo8av" path="res://assets/buttons/view prev.png" id="26_b6mmh"]
 [ext_resource type="Script" uid="uid://6yoq41edu6rm" path="res://view_previous_statement.gd" id="27_ttn6t"]
 [ext_resource type="Texture2D" uid="uid://dgd6rvfis6qfy" path="res://assets/buttons/blank button.png" id="28_ia5ws"]
@@ -207,6 +205,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("5_gyffv")
 script = ExtResource("10_ubhxj")
 label_font = ExtResource("6_sof0w")
+max_employees = 2
 
 [node name="leftback" type="Marker2D" parent="shoe-dini shoes" groups=["seats"]]
 position = Vector2(-27.2, 38.4)
@@ -302,8 +301,7 @@ scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_ethxx")
 animation = &"type"
 offset = Vector2(0, -30)
-script = ExtResource("8_bjebc")
-is_thief = true
+script = ExtResource("7_j7kpp")
 
 [node name="employee3" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(937, 900)
@@ -311,7 +309,8 @@ scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_duihb")
 animation = &"sleep"
 offset = Vector2(0, -30)
-script = ExtResource("24_3o2xh")
+script = ExtResource("7_j7kpp")
+work_anim = 1
 
 [node name="popups" type="Node" parent="."]
 script = ExtResource("35_4p6gt")
