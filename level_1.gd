@@ -5,7 +5,7 @@ const FEE_PER_COMPANY := 100
 const WASTE := 100
 const START_FORTUNE := 800
 const THIEF_COUNT := 1
-const SAFEHOUSE_NAME := "innovative hot dogs"
+const SAFEHOUSE_NAME := "company #1"
 const RED := "#c0392b"
 
 @export var next_level: PackedScene
@@ -14,6 +14,7 @@ const RED := "#c0392b"
 @export var money_label: RichTextLabel
 @export var money_font: Font
 @export var money_font_size := 40
+@export var tutorial_mode := false
 
 var fortune := START_FORTUNE
 var quarter := 0
@@ -33,6 +34,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_build_paper()
 	_update_money()
+	DialogueManager.show_dialogue_balloon(load("res://tutorial.dialogue"), "start")
 
 func rooms() -> Array: return get_tree().get_nodes_in_group("rooms")
 func employees() -> Array: return get_tree().get_nodes_in_group("employees")
@@ -52,6 +54,7 @@ func innocents_in(room_name: String) -> int:
 	return n
 
 func end_quarter() -> void:
+	Tutorial.notify_next_quarter()
 	quarter += 1
 	var earned := 0
 	var doc := "   COMPANY STATEMENT — Q%d\n\n" % quarter
@@ -86,13 +89,21 @@ func _update_money() -> void:
 		money_label.text = "$%d" % fortune
 
 func _win() -> void:
-	print("LEVEL WON")
-	await get_tree().create_timer(2.0).timeout
-	if next_level:
-		get_tree().change_scene_to_packed(next_level)
+	Tutorial.notify_level_won()
+	if tutorial_mode:
+		await Tutorial.outro_done
+	else:
+		await get_tree().create_timer(1.5).timeout
+	var popups := get_node_or_null("popups")
+	if popups:
+		popups.show_win(next_level)
+	else:
+		push_warning("No Popups node in this scene")
+		if next_level:
+			get_tree().change_scene_to_packed(next_level)
 
 func _lose() -> void:
-	print("GAME OVER")
+	$Popups.show_game_over()
 	
 func _line(item: String, amount: int, signed := true) -> String:
 	var amt: String
@@ -158,12 +169,16 @@ func _build_paper() -> void:
 	layer.layer = 5
 	layer.add_child(_paper)
 	add_child(layer)
+	close.pressed.connect(func():
+		_paper.hide()
+		Tutorial.notify_statement_closed())
 
 func _nav(dir: int) -> void:
 	_show_at(_view + dir, true)
 
 func open_statement_browser() -> void:
 	_show_at(history.size() - 1, true)
+	Tutorial.notify_browser_opened()
 
 func _show_at(idx: int, with_nav: bool) -> void:
 	if history.is_empty():
@@ -182,3 +197,6 @@ func _show_at(idx: int, with_nav: bool) -> void:
 	_paper.show()
 	await get_tree().process_frame
 	_paper.position = (get_viewport_rect().size - _paper.size) / 2.0
+
+func _on_back_pressed() -> void:
+	get_tree().change_scene_to_file("res://level_selection.tscn")

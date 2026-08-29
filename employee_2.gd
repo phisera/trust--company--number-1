@@ -36,7 +36,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _drop() -> void:
 	var room := _room_under(global_position)
-	var s := _nearest_free_seat(room) if room != "" else null
+	var s: Node2D = null
+	if room != "" and not _room_full(room):
+		s = _nearest_free_seat(room)
 	if s == null:
 		seat = _prev_seat
 		global_position = _home
@@ -81,4 +83,10 @@ func _seat_taken(s: Node2D) -> bool:
 	for e in get_tree().get_nodes_in_group("employees"):
 		if e != self and e.seat == s:
 			return true
+	return false
+	
+func _room_full(room_name: String) -> bool:
+	for r: Node2D in get_tree().get_nodes_in_group("rooms"):
+		if r.name == room_name and r.has_method("is_full"):
+			return r.is_full()
 	return false

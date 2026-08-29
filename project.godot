@@ -17,6 +17,11 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Tutorial="*res://tutorial_state.gd"
+
+[dialogue_manager]
+
+runtime/balloon_path="uid://cehdab0mhcuc7"
 
 [display]
 

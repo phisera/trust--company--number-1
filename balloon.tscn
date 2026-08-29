@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=3 uid="uid://cehdab0mhcuc7"]
+
+[ext_resource type="Script" uid="uid://ddh51421u7ovc" path="res://balloon.gd" id="1_n2rxu"]
+[ext_resource type="Texture2D" uid="uid://b85gkrhypkm7p" path="res://assets/dialogue/gramps.png" id="2_jj3vs"]
+[ext_resource type="Texture2D" uid="uid://dtwaymhwpj8la" path="res://assets/dialogue/dialogue box.png" id="2_r345k"]
+[ext_resource type="Texture2D" uid="uid://b8b7nqwp2jkaa" path="res://assets/dialogue/baby sprite.png" id="3_wxbh2"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="5_wxbh2"]
+[ext_resource type="FontFile" uid="uid://bbdpra6hlr8fw" path="res://assets/fonts/Schoolbell/Schoolbell-Regular.ttf" id="5_x2iu8"]
+[ext_resource type="Theme" uid="uid://djbdy8b6tpikt" path="res://assets/themes/response_theme.tres" id="7_1xemn"]
+
+[node name="balloon" type="CanvasLayer"]
+layer = 15
+script = ExtResource("1_n2rxu")
+portrait_grandpapi = ExtResource("2_jj3vs")
+portrait_you = ExtResource("3_wxbh2")
+
+[node name="box" type="TextureRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 326.0
+offset_top = -1066.0
+offset_right = -119.0
+offset_bottom = -618.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_r345k")
+stretch_mode = 6
+
+[node name="portrait" type="TextureRect" parent="box"]
+layout_mode = 0
+offset_left = -221.0
+offset_top = 25.0
+offset_right = 179.0
+offset_bottom = 418.0
+stretch_mode = 5
+flip_h = true
+
+[node name="name_label" type="Label" parent="box"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 100.0
+offset_right = 604.0
+offset_bottom = 174.0
+theme_override_fonts/font = ExtResource("5_x2iu8")
+theme_override_font_sizes/font_size = 30
+
+[node name="dialogue_label" type="RichTextLabel" parent="box"]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 229.0
+offset_right = 1387.0
+offset_bottom = 394.0
+theme_override_colors/default_color = Color(0.94902, 0.913725, 0.847059, 1)
+theme_override_fonts/normal_font = ExtResource("5_x2iu8")
+theme_override_font_sizes/normal_font_size = 35
+script = ExtResource("5_wxbh2")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="responses" type="VBoxContainer" parent="box"]
+layout_mode = 0
+offset_left = 676.0
+offset_top = 77.0
+offset_right = 1355.0
+offset_bottom = 184.0
+theme = ExtResource("7_1xemn")
+
+[node name="voice" type="AudioStreamPlayer2D" parent="box"]

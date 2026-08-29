@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dj4oropday51h" path="res://credits.gd" id="3_mom7w"]
 [ext_resource type="FontFile" uid="uid://bbdpra6hlr8fw" path="res://assets/fonts/Schoolbell/Schoolbell-Regular.ttf" id="4_7lgly"]
 [ext_resource type="Script" uid="uid://bt40hlhdcfk6n" path="res://start_button.gd" id="4_0824t"]
-[ext_resource type="Texture2D" uid="uid://cg1jk2ds5ad10" path="res://assets/buttons/cont button.png" id="5_nuqgq"]
+[ext_resource type="Texture2D" uid="uid://0jk7ux3bw2q2" path="res://assets/buttons/levels.png" id="5_lx2ly"]
 [ext_resource type="Script" uid="uid://c45pg5gd0heng" path="res://level_selection_button.gd" id="6_lx2ly"]
 [ext_resource type="Texture2D" uid="uid://onpvap2c2781" path="res://assets/buttons/credit.png" id="7_lx2ly"]
 
@@ -30,11 +30,11 @@ stretch_mode = 6
 script = ExtResource("4_0824t")
 
 [node name="level_selection_button" type="TextureButton" parent="."]
-offset_left = 1258.0
-offset_top = 386.0
-offset_right = 1920.0
-offset_bottom = 830.0
-texture_normal = ExtResource("5_nuqgq")
+offset_left = 1257.0
+offset_top = 368.0
+offset_right = 1959.0
+offset_bottom = 1011.0
+texture_normal = ExtResource("5_lx2ly")
 stretch_mode = 6
 script = ExtResource("6_lx2ly")
 
