@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://j78oxdam3lgv"]
 
-[ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://level_1.gd" id="1_hbghi"]
+[ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://game.gd" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_3o2xh"]
 [ext_resource type="PackedScene" uid="uid://1xa7ke3k1vu6" path="res://level_2.tscn" id="2_84ct4"]
 [ext_resource type="FontFile" uid="uid://crtoid8h4hclh" path="res://assets/fonts/Bree_Serif/BreeSerif-Regular.ttf" id="2_duihb"]
@@ -118,9 +118,11 @@ statement_font = ExtResource("2_duihb")
 money_label = NodePath("blank/current money")
 money_font = ExtResource("6_sof0w")
 money_font_size = 45
+tutorial_mode = true
 
 [node name="background" type="TextureRect" parent="."]
-offset_right = 1922.0
+offset_left = 2.0
+offset_right = 1924.0
 offset_bottom = 1084.0
 texture = ExtResource("2_3o2xh")
 
@@ -134,7 +136,7 @@ offset_bottom = 1082.0
 texture = ExtResource("3_27bay")
 
 [node name="company #1" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(520, 857)
+position = Vector2(522, 857)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("6_ett8d")
 script = ExtResource("5_sof0w")
@@ -167,7 +169,7 @@ position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="pig supremacy" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(984, 854)
+position = Vector2(986, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_5rr72")
 script = ExtResource("8_ggavl")
@@ -200,7 +202,7 @@ position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="shoe-dini shoes" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(1444, 854)
+position = Vector2(1446, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("5_gyffv")
 script = ExtResource("10_ubhxj")
@@ -233,18 +235,18 @@ position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
 [node name="next quarter" type="TextureButton" parent="."]
-offset_left = 1735.0
+offset_left = 1737.0
 offset_top = 916.0
-offset_right = 2085.0
+offset_right = 2087.0
 offset_bottom = 1266.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("12_be5co")
 script = ExtResource("13_hycyb")
 
 [node name="help" type="TextureButton" parent="."]
-offset_left = 1745.0
+offset_left = 1747.0
 offset_top = 4.0
-offset_right = 2095.0
+offset_right = 2097.0
 offset_bottom = 354.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("14_ett8d")
@@ -253,9 +255,9 @@ title_font = ExtResource("6_sof0w")
 body_font = ExtResource("6_sof0w")
 
 [node name="view previous statement" type="TextureButton" parent="."]
-offset_left = 1689.0
+offset_left = 1691.0
 offset_top = 718.0
-offset_right = 2039.0
+offset_right = 2041.0
 offset_bottom = 1068.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("26_b6mmh")
@@ -263,16 +265,16 @@ stretch_mode = 6
 script = ExtResource("27_ttn6t")
 
 [node name="back" type="TextureButton" parent="."]
-offset_left = 4.0
+offset_left = 6.0
 offset_top = 9.0
-offset_right = 354.0
+offset_right = 356.0
 offset_bottom = 359.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("16_ka01f")
 script = ExtResource("17_notaq")
 
 [node name="blank" type="Sprite2D" parent="."]
-position = Vector2(114, 1008)
+position = Vector2(116, 1008)
 scale = Vector2(0.597143, 0.582857)
 texture = ExtResource("28_ia5ws")
 
@@ -284,6 +286,7 @@ offset_bottom = 72.1371
 
 [node name="employees" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(2, 0)
 
 [node name="employee" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(445, 974)

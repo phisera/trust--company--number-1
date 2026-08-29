@@ -3,12 +3,12 @@ extends Node2D
 const PROFIT_GOOD := 100
 const FEE_PER_COMPANY := 100
 const WASTE := 100
-const START_FORTUNE := 800
 const THIEF_COUNT := 1
 const SAFEHOUSE_NAME := "company #1"
 const RED := "#c0392b"
 
 @export var next_level: PackedScene
+@export var start_fortune := 500
 @export var statement_font: Font
 @export var statement_font_size := 40
 @export var money_label: RichTextLabel
@@ -16,7 +16,7 @@ const RED := "#c0392b"
 @export var money_font_size := 40
 @export var tutorial_mode := false
 
-var fortune := START_FORTUNE
+var fortune := 0
 var quarter := 0
 var history: Array[String] = []
 var _paper: PanelContainer
@@ -25,6 +25,7 @@ var _nav_row: HBoxContainer
 var _view := 0
 
 func _ready() -> void:
+	fortune = start_fortune
 	$"next quarter".pressed.connect(end_quarter)
 	$"view previous statement".pressed.connect(open_statement_browser)
 	if money_label:
@@ -103,7 +104,7 @@ func _win() -> void:
 			get_tree().change_scene_to_packed(next_level)
 
 func _lose() -> void:
-	$Popups.show_game_over()
+	$popups.show_game_over()
 	
 func _line(item: String, amount: int, signed := true) -> String:
 	var amt: String

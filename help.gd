@@ -59,7 +59,7 @@ func _ready() -> void:
 	col.add_child(body)
 
 	var hint := Label.new()
-	hint.text = "(click anywhere to close)"
+	hint.text = "(click to close)"
 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	if body_font:
 		hint.add_theme_font_override("font", body_font)
