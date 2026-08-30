@@ -371,7 +371,7 @@ animations = [{
 
 [node name="level_16" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_t0lr5")
-next_level_path = "uid://dmjadsbaoibiq"
+next_level_path = "uid://b8kxeqnbnubrw"
 start_fortune = 1300
 statement_font = ExtResource("2_wpona")
 money_label = NodePath("blank/current money")
