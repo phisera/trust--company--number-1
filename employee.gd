@@ -45,6 +45,7 @@ func _ready() -> void:
 	else:
 		play(_work_name())
 
+
 func _grab_offset() -> Vector2:
 	var tex := sprite_frames.get_frame_texture("dangle", 0)
 	return Vector2(0, tex.get_size().y * 0.5 * scale.y - 6.0)

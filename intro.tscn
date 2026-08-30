@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://efhtbw51akf6"]
+[gd_scene load_steps=4 format=3 uid="uid://efhtbw51akf6"]
 
 [ext_resource type="Script" uid="uid://b1eaga5koddu" path="res://intro.gd" id="1_ayt76"]
 [ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="1_s2ta7"]
+[ext_resource type="VideoStream" uid="uid://d1cvn4is65q34" path="res://assets/misc/baby.ogv" id="3_7a8ye"]
 
 [node name="intro" type="Node"]
 script = ExtResource("1_ayt76")
@@ -12,8 +13,11 @@ offset_bottom = 1082.0
 texture = ExtResource("1_s2ta7")
 
 [node name="intro" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 42.0
+offset_bottom = 42.0
+stream = ExtResource("3_7a8ye")
 
 [node name="skip_cutscene" type="Button" parent="intro"]
 layout_mode = 1

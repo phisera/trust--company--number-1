@@ -27,12 +27,13 @@ var _nav_row: HBoxContainer
 var _view := 0
 
 func _ready() -> void:
+	if not $"back".pressed.is_connected(_on_back_pressed):
+		$"back".pressed.connect(_on_back_pressed)
 	fortune = start_fortune
 	_sfx = AudioStreamPlayer.new()
 	add_child(_sfx)
 	$"next quarter".pressed.connect(end_quarter)
 	$"view previous statement".pressed.connect(open_statement_browser)
-	$"back".pressed.connect(_on_back_pressed)
 	if money_label:
 		if money_font:
 			money_label.add_theme_font_override("normal_font", money_font)
@@ -42,6 +43,19 @@ func _ready() -> void:
 	_update_money()
 	if tutorial_mode:
 		DialogueManager.show_dialogue_balloon(load("res://tutorial.dialogue"), "start")
+
+	var nq := find_child("next quarter", true, false)
+	if nq and not nq.pressed.is_connected(end_quarter):
+		nq.pressed.connect(end_quarter)
+
+	var vps := find_child("view previous statement", true, false)
+	if vps and not vps.pressed.is_connected(open_statement_browser):
+		vps.pressed.connect(open_statement_browser)
+
+	var back := find_child("back", true, false)
+	if back == null: back = find_child("back button", true, false)
+	if back and not back.pressed.is_connected(_on_back_pressed):
+		back.pressed.connect(_on_back_pressed)
 
 func rooms() -> Array: return get_tree().get_nodes_in_group("rooms")
 func employees() -> Array: return get_tree().get_nodes_in_group("employees")

@@ -8,12 +8,17 @@ func _ready() -> void:
 	_sfx = AudioStreamPlayer.new()
 	add_child(_sfx)
 
+var _leaving := false
+
 func _go(path: String) -> void:
+	if _leaving: return
+	_leaving = true
 	_sfx.stream = coin_sound
 	_sfx.pitch_scale = randf_range(0.95, 1.1)
 	_sfx.play()
 	await get_tree().create_timer(0.3).timeout
-	get_tree().change_scene_to_file(path)
+	if is_inside_tree():
+		get_tree().change_scene_to_file(path)
 
 func _on_start_button_pressed() -> void:
 	_go("res://intro.tscn")
