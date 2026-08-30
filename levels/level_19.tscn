@@ -369,10 +369,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="level_17" type="Node2D" node_paths=PackedStringArray("money_label")]
+[node name="level_19" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_m6dko")
-next_level_path = "uid://dmjadsbaoibiq"
-start_fortune = 2600
+next_level_path = "uid://dh5d7m22c4n7l"
+start_fortune = 3500
 statement_font = ExtResource("2_bhljx")
 money_label = NodePath("blank/current money")
 money_font = ExtResource("3_lw51u")
@@ -397,7 +397,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("6_fb1ok")
 script = ExtResource("7_o2ybq")
 label_font = ExtResource("3_lw51u")
-max_employees = 4
+max_employees = 5
 display_name = "company #1"
 
 [node name="leftback" type="Marker2D" parent="company #1" groups=["seats"]]
@@ -705,6 +705,7 @@ sprite_frames = SubResource("SpriteFrames_2otwc")
 animation = &"dangle"
 offset = Vector2(0, -30)
 script = ExtResource("25_cj38l")
+is_thief = true
 
 [node name="employee7" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(882, 953)
@@ -731,6 +732,7 @@ sprite_frames = SubResource("SpriteFrames_83ef2")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_cj38l")
+is_thief = true
 
 [node name="employee10" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(1022, 364)
@@ -739,7 +741,6 @@ sprite_frames = SubResource("SpriteFrames_2hv7i")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_cj38l")
-is_thief = true
 
 [node name="employee11" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(1087, 468)
@@ -749,6 +750,7 @@ animation = &"sleep"
 offset = Vector2(0, -30)
 script = ExtResource("25_cj38l")
 work_anim = 1
+is_thief = true
 
 [node name="employee12" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(911, 403)
@@ -757,7 +759,6 @@ sprite_frames = SubResource("SpriteFrames_yc2rx")
 animation = &"dangle"
 offset = Vector2(0, -30)
 script = ExtResource("25_cj38l")
-is_thief = true
 
 [node name="popups" type="Node" parent="."]
 script = ExtResource("70_dpul8")
