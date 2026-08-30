@@ -8,6 +8,7 @@ enum WorkAnim { TYPE, SLEEP, POINT }
 
 const snore_sound := preload("res://assets/sound effects/snoring.ogg")
 const typing_sound := preload("res://assets/sound effects/typing_noises.ogg")
+const drop_sound := preload("res://assets/sound effects/drop.ogg")
 
 var _sfx: AudioStreamPlayer2D
 var company := ""
@@ -15,6 +16,7 @@ var seat: Node2D = null
 var _dragging := false
 var _prev_seat: Node2D = null
 var _home := Vector2.ZERO
+var _oneshot: AudioStreamPlayer2D
 
 func _work_name() -> String:
 	match work_anim:
@@ -30,6 +32,9 @@ func _ready() -> void:
 	_sfx.volume_db = -12.0
 	_sfx.finished.connect(func(): if _sfx.stream: _sfx.play())
 	add_child(_sfx)
+	_oneshot = AudioStreamPlayer2D.new()
+	_oneshot.volume_db = -6.0
+	add_child(_oneshot)
 	animation_changed.connect(_update_sound)
 	_update_sound()
 	add_to_group("employees")
@@ -77,6 +82,9 @@ func _update_sound() -> void:
 		_sfx.play()
 
 func _drop() -> void:
+	_oneshot.stream = drop_sound
+	_oneshot.pitch_scale = randf_range(0.9, 1.1)
+	_oneshot.play()
 	var room := _room_under(global_position)
 	var s: Node2D = null
 	if room != "" and not _room_full(room):

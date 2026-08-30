@@ -303,6 +303,7 @@ sprite_frames = SubResource("SpriteFrames_ethxx")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("7_j7kpp")
+is_thief = true
 
 [node name="employee3" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(937, 900)
