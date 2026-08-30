@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 Tutorial="*res://tutorial_state.gd"
+Music="*res://music.gd"
 
 [dialogue_manager]
 

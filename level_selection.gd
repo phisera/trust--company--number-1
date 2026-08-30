@@ -5,6 +5,7 @@ const coin_sound := preload("res://assets/sound effects/coin.ogg")
 var _sfx: AudioStreamPlayer
 
 func _ready() -> void:
+	Music.play_title()
 	_sfx = AudioStreamPlayer.new()
 	add_child(_sfx)
 	for i in range(1, 21):

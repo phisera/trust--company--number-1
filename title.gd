@@ -4,6 +4,7 @@ const coin_sound := preload("res://assets/sound effects/coin.ogg")
 var _sfx: AudioStreamPlayer
 
 func _ready() -> void:
+	Music.play_title()
 	Input.set_custom_mouse_cursor(load("res://assets/misc/pointer.png"), Input.CURSOR_ARROW, Vector2(8, 8))
 	_sfx = AudioStreamPlayer.new()
 	add_child(_sfx)

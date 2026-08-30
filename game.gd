@@ -27,6 +27,10 @@ var _nav_row: HBoxContainer
 var _view := 0
 
 func _ready() -> void:
+	if tutorial_mode:
+		Music.stop()
+	else:
+		Music.play_game()
 	if not $"back".pressed.is_connected(_on_back_pressed):
 		$"back".pressed.connect(_on_back_pressed)
 	fortune = start_fortune
