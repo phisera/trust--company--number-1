@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b1eaga5koddu" path="res://intro.gd" id="1_ayt76"]
 [ext_resource type="Texture2D" uid="uid://dbmdn6wdc0v2" path="res://assets/backgrounds/bg_white_screen.png" id="1_s2ta7"]
-[ext_resource type="VideoStream" uid="uid://d1cvn4is65q34" path="res://assets/misc/baby.ogv" id="3_7a8ye"]
+[ext_resource type="VideoStream" uid="uid://ukl1j4dxxc7l" path="res://assets/misc/cutscene.ogv" id="3_7a8ye"]
 
-[node name="intro" type="Node"]
+[node name="intro" type="Node2D"]
 script = ExtResource("1_ayt76")
 
 [node name="background" type="TextureRect" parent="."]
@@ -27,5 +27,3 @@ offset_top = 854.0
 offset_right = 1863.0
 offset_bottom = 1029.0
 text = "skip cutscene"
-
-[connection signal="pressed" from="intro/skip_cutscene" to="." method="_on_skip_cutscene_pressed"]

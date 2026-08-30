@@ -13,6 +13,8 @@ config_version=5
 config/name="Trust (Company) Number 1"
 run/main_scene="uid://d53ycrn335ui"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.567769, 0.755057, 0.842916, 1)
+boot_splash/image="uid://btunm1nbxjfb0"
 
 [autoload]
 
