@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsvvxqsfh4qeg"
-path="res://.godot/imported/greybox.webp-3971127f28decf0a3a0f6b7cf91fadc7.ctex"
+path="res://.godot/imported/greybox.webp-7c518fdc01c5a9a961f129a1b764d75d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/greybox.webp"
-dest_files=["res://.godot/imported/greybox.webp-3971127f28decf0a3a0f6b7cf91fadc7.ctex"]
+source_file="res://assets/misc/greybox.webp"
+dest_files=["res://.godot/imported/greybox.webp-7c518fdc01c5a9a961f129a1b764d75d.ctex"]
 
 [params]
 

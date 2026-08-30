@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://crtoid8h4hclh" path="res://assets/fonts/Bree_Serif/BreeSerif-Regular.ttf" id="2_bjg5l"]
 [ext_resource type="FontFile" uid="uid://bbdpra6hlr8fw" path="res://assets/fonts/Schoolbell/Schoolbell-Regular.ttf" id="3_ibm1a"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="4_yxntu"]
-[ext_resource type="Texture2D" uid="uid://dsvvxqsfh4qeg" path="res://assets/greybox.webp" id="5_ijosd"]
+[ext_resource type="Texture2D" uid="uid://dsvvxqsfh4qeg" path="res://assets/misc/greybox.webp" id="5_ijosd"]
 [ext_resource type="Texture2D" uid="uid://cl33j7jgqns0e" path="res://assets/rooms/compy no1 reall.png" id="6_r6euk"]
 [ext_resource type="Script" uid="uid://bkektxh86wj58" path="res://room.gd" id="7_2q1qm"]
 [ext_resource type="Texture2D" uid="uid://c1kgot7molop6" path="res://assets/rooms/comp4.png" id="8_bjg5l"]

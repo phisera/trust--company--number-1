@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://game.gd" id="1_hbghi"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_3o2xh"]
 [ext_resource type="FontFile" uid="uid://crtoid8h4hclh" path="res://assets/fonts/Bree_Serif/BreeSerif-Regular.ttf" id="2_duihb"]
-[ext_resource type="Texture2D" uid="uid://dsvvxqsfh4qeg" path="res://assets/greybox.webp" id="3_27bay"]
+[ext_resource type="Texture2D" uid="uid://dsvvxqsfh4qeg" path="res://assets/misc/greybox.webp" id="3_27bay"]
 [ext_resource type="Texture2D" uid="uid://bfk17hn2mi6em" path="res://assets/rooms/comp2.png" id="4_5rr72"]
 [ext_resource type="Texture2D" uid="uid://n8mvn4tfrujy" path="res://assets/rooms/comp3.png" id="5_gyffv"]
 [ext_resource type="Script" uid="uid://bkektxh86wj58" path="res://room.gd" id="5_sof0w"]
