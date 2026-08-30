@@ -1,0 +1,143 @@
+[gd_scene load_steps=20 format=3 uid="uid://djqjwtu3kw5n4"]
+
+[ext_resource type="PackedScene" uid="uid://cgm42etbb7b2x" path="res://level_3.tscn" id="1_uws32"]
+[ext_resource type="Texture2D" uid="uid://n8mvn4tfrujy" path="res://assets/rooms/comp3.png" id="2_uws32"]
+[ext_resource type="Texture2D" uid="uid://c5dpskhv4bxd7" path="res://assets/rooms/comp5.png" id="2_vcgqq"]
+[ext_resource type="Texture2D" uid="uid://glq00tc4x14u" path="res://assets/employees/typer/typer3/emp3_dangle.png" id="4_jda3s"]
+[ext_resource type="Texture2D" uid="uid://d3udrvl3nw3t6" path="res://assets/employees/typer/typer3/emp3_type_3.png" id="5_gsy6j"]
+[ext_resource type="Texture2D" uid="uid://brgs6enrrbsh1" path="res://assets/employees/typer/typer3/emp3_type_2.png" id="6_tkh5q"]
+[ext_resource type="Texture2D" uid="uid://5ch34yw6s7kw" path="res://assets/employees/typer/typer3/emp3_type_1.png" id="7_oa4pn"]
+[ext_resource type="Texture2D" uid="uid://cfqrcyji7obt8" path="res://assets/employees/sleeper/sleeper3/sleep3_dangle.png" id="8_jda3s"]
+[ext_resource type="Texture2D" uid="uid://cyl8ejr0a3pva" path="res://assets/employees/writer/writer1/write1_dangle.png" id="8_spb6k"]
+[ext_resource type="Texture2D" uid="uid://db4fkwapxy5oj" path="res://assets/employees/writer/writer1/write1_1.png" id="9_ad8pm"]
+[ext_resource type="Texture2D" uid="uid://bqc8ixcrewwa1" path="res://assets/employees/sleeper/sleeper3/sleep3_2.png" id="9_gsy6j"]
+[ext_resource type="Texture2D" uid="uid://4qb6v7ukv2p6" path="res://assets/employees/writer/writer1/write1_2.png" id="10_q0h4m"]
+[ext_resource type="Texture2D" uid="uid://c88kna8gk7u26" path="res://assets/employees/sleeper/sleeper3/sleep3_1.png" id="10_tkh5q"]
+[ext_resource type="Texture2D" uid="uid://bmbx3ddt1r4ah" path="res://assets/employees/writer/writer1/write1_3.png" id="11_w3lgi"]
+[ext_resource type="Texture2D" uid="uid://codnarb4rsfmk" path="res://assets/employees/writer/writer1/write1_4.png" id="12_jegxy"]
+[ext_resource type="Script" uid="uid://03o30paaexpg" path="res://employee.gd" id="13_1bbjl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0yqnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jda3s")
+}],
+"loop": false,
+"name": &"dangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gsy6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tkh5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oa4pn")
+}],
+"loop": true,
+"name": &"type",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oa4pn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_jda3s")
+}],
+"loop": false,
+"name": &"dangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_gsy6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tkh5q")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 1.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrs1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_spb6k")
+}],
+"loop": false,
+"name": &"dangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ad8pm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q0h4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w3lgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jegxy")
+}],
+"loop": true,
+"name": &"type",
+"speed": 7.0
+}]
+
+[node name="level_5" instance=ExtResource("1_uws32")]
+next_level_path = "uid://cor4vg3whi63o"
+start_fortune = 800
+
+[node name="company #1" parent="." index="1"]
+max_employees = 2
+
+[node name="2" parent="." index="2"]
+texture = ExtResource("2_uws32")
+max_employees = 2
+display_name = "shoe-dini shoes"
+
+[node name="3" parent="." index="3"]
+texture = ExtResource("2_vcgqq")
+max_employees = 2
+display_name = "deco-sponges"
+
+[node name="employee" parent="employees" index="0"]
+position = Vector2(922, 904)
+
+[node name="employee2" parent="employees" index="1"]
+position = Vector2(873, 1008)
+sprite_frames = SubResource("SpriteFrames_0yqnl")
+is_thief = true
+
+[node name="employee3" parent="employees" index="2"]
+visible = false
+position = Vector2(890, 976)
+enabled = false
+
+[node name="employee4" parent="employees" index="3"]
+position = Vector2(1365, 950)
+sprite_frames = SubResource("SpriteFrames_oa4pn")
+animation = &"sleep"
+is_thief = false
+
+[node name="employee5" parent="employees" index="4"]
+visible = false
+position = Vector2(929, 906)
+enabled = false
+
+[node name="employee6" type="AnimatedSprite2D" parent="employees" index="5" groups=["employee"]]
+position = Vector2(1490, 942)
+scale = Vector2(1, 1.021)
+sprite_frames = SubResource("SpriteFrames_rrs1j")
+animation = &"type"
+offset = Vector2(0, -30)
+script = ExtResource("13_1bbjl")
+is_thief = true

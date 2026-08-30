@@ -3,7 +3,11 @@ extends Sprite2D
 @export var label_font: Font
 @export var font_size := 34
 @export var label_offset := Vector2(0, -5)
-@export var max_employees := 2
+@export var max_employees := 1
+@export var display_name := ""
+
+func label_name() -> String:
+	return display_name if display_name != "" else name
 
 var _label: Label
 var _max := 0

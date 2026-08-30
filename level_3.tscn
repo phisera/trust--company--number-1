@@ -1,16 +1,14 @@
-[gd_scene load_steps=47 format=3 uid="uid://cgm42etbb7b2x"]
+[gd_scene load_steps=45 format=3 uid="uid://cgm42etbb7b2x"]
 
 [ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://game.gd" id="1_rvuvc"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_cqks1"]
 [ext_resource type="FontFile" uid="uid://crtoid8h4hclh" path="res://assets/fonts/Bree_Serif/BreeSerif-Regular.ttf" id="2_k7jig"]
 [ext_resource type="Texture2D" uid="uid://dsvvxqsfh4qeg" path="res://assets/greybox.webp" id="3_ekg0r"]
 [ext_resource type="Texture2D" uid="uid://cl33j7jgqns0e" path="res://assets/rooms/compy no1 reall.png" id="4_d6vcq"]
-[ext_resource type="Script" uid="uid://bkektxh86wj58" path="res://1.gd" id="5_4g8ag"]
+[ext_resource type="Script" uid="uid://bkektxh86wj58" path="res://room.gd" id="5_4g8ag"]
 [ext_resource type="FontFile" uid="uid://bbdpra6hlr8fw" path="res://assets/fonts/Schoolbell/Schoolbell-Regular.ttf" id="6_k7jig"]
-[ext_resource type="Script" uid="uid://bn0myj8vfc8w4" path="res://2.gd" id="8_om02f"]
 [ext_resource type="Texture2D" uid="uid://dj2xy8iyi62pl" path="res://assets/rooms/comp1.png" id="9_xsiod"]
 [ext_resource type="Texture2D" uid="uid://c1kgot7molop6" path="res://assets/rooms/comp4.png" id="10_cwnlo"]
-[ext_resource type="Script" uid="uid://drtf0v6vf0uqd" path="res://3.gd" id="10_e0wxr"]
 [ext_resource type="Texture2D" uid="uid://cy7k768uyoku7" path="res://assets/buttons/next_quarter_button-removebg-preview.png" id="11_apkyb"]
 [ext_resource type="Script" uid="uid://cdiwj672soksc" path="res://next_quarter.gd" id="12_wp21n"]
 [ext_resource type="Texture2D" uid="uid://b7dg4jblbkipe" path="res://assets/buttons/question button.png" id="13_bx5y4"]
@@ -163,6 +161,7 @@ animations = [{
 
 [node name="level_3" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_rvuvc")
+next_level_path = "uid://dmjadsbaoibiq"
 statement_font = ExtResource("2_k7jig")
 money_label = NodePath("blank/current money")
 money_font = ExtResource("6_k7jig")
@@ -187,6 +186,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_d6vcq")
 script = ExtResource("5_4g8ag")
 label_font = ExtResource("6_k7jig")
+display_name = "company #1"
 
 [node name="leftback" type="Marker2D" parent="company #1" groups=["seats"]]
 position = Vector2(-28, 38.4)
@@ -214,70 +214,73 @@ metadata/size = 0.8
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="optimized hot dogs" type="Sprite2D" parent="." groups=["rooms"]]
-position = Vector2(984, 854)
+[node name="2" type="Sprite2D" parent="." groups=["rooms"]]
+position = Vector2(981, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("9_xsiod")
-script = ExtResource("8_om02f")
+script = ExtResource("5_4g8ag")
 label_font = ExtResource("6_k7jig")
 max_employees = 3
+display_name = "innovative hot dogs"
 
-[node name="leftback" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(-28, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="quack franchise" type="Sprite2D" parent="." groups=["rooms"]]
+[node name="3" type="Sprite2D" parent="." groups=["rooms"]]
 position = Vector2(1444, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("10_cwnlo")
-script = ExtResource("10_e0wxr")
+script = ExtResource("5_4g8ag")
 label_font = ExtResource("6_k7jig")
+max_employees = 3
+display_name = "quack franchise"
 
-[node name="leftback" type="Marker2D" parent="quack franchise" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(-27.2, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="quack franchise" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="quack franchise" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="quack franchise" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="quack franchise" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="quack franchise" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
@@ -370,7 +373,7 @@ work_anim = 1
 is_thief = true
 
 [node name="employee5" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1075, 1017)
+position = Vector2(1023, 893)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_wp21n")
 animation = &"dangle"

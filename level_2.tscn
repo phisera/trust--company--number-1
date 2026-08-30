@@ -1,16 +1,13 @@
-[gd_scene load_steps=43 format=3 uid="uid://1xa7ke3k1vu6"]
+[gd_scene load_steps=40 format=3 uid="uid://1xa7ke3k1vu6"]
 
 [ext_resource type="Script" uid="uid://daucklqhgqsmn" path="res://game.gd" id="1_aocai"]
-[ext_resource type="PackedScene" uid="uid://cgm42etbb7b2x" path="res://level_3.tscn" id="2_51w4t"]
 [ext_resource type="FontFile" uid="uid://crtoid8h4hclh" path="res://assets/fonts/Bree_Serif/BreeSerif-Regular.ttf" id="2_aocai"]
 [ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_xwl8u"]
 [ext_resource type="Texture2D" uid="uid://dsvvxqsfh4qeg" path="res://assets/greybox.webp" id="3_3pas5"]
 [ext_resource type="Texture2D" uid="uid://cl33j7jgqns0e" path="res://assets/rooms/compy no1 reall.png" id="4_u1jey"]
-[ext_resource type="Script" uid="uid://bkektxh86wj58" path="res://1.gd" id="5_51w4t"]
+[ext_resource type="Script" uid="uid://bkektxh86wj58" path="res://room.gd" id="5_51w4t"]
 [ext_resource type="FontFile" uid="uid://bbdpra6hlr8fw" path="res://assets/fonts/Schoolbell/Schoolbell-Regular.ttf" id="6_ddgyg"]
 [ext_resource type="Texture2D" uid="uid://bfk17hn2mi6em" path="res://assets/rooms/comp2.png" id="7_qh630"]
-[ext_resource type="Script" uid="uid://bn0myj8vfc8w4" path="res://2.gd" id="8_uv8er"]
-[ext_resource type="Script" uid="uid://drtf0v6vf0uqd" path="res://3.gd" id="10_eqpf5"]
 [ext_resource type="Texture2D" uid="uid://dj2xy8iyi62pl" path="res://assets/rooms/comp1.png" id="10_u1jey"]
 [ext_resource type="Texture2D" uid="uid://cy7k768uyoku7" path="res://assets/buttons/next_quarter_button-removebg-preview.png" id="11_qm6bn"]
 [ext_resource type="Script" uid="uid://cdiwj672soksc" path="res://next_quarter.gd" id="12_cugil"]
@@ -135,7 +132,7 @@ animations = [{
 
 [node name="level_2" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_aocai")
-next_level = ExtResource("2_51w4t")
+next_level_path = "uid://cgm42etbb7b2x"
 statement_font = ExtResource("2_aocai")
 money_label = NodePath("blank/current money")
 money_font = ExtResource("6_ddgyg")
@@ -160,6 +157,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_u1jey")
 script = ExtResource("5_51w4t")
 label_font = ExtResource("6_ddgyg")
+display_name = "company #1"
 
 [node name="leftback" type="Marker2D" parent="company #1" groups=["seats"]]
 position = Vector2(-28, 38.4)
@@ -187,70 +185,73 @@ metadata/size = 0.8
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="pig supremacy" type="Sprite2D" parent="." groups=["rooms"]]
+[node name="2" type="Sprite2D" parent="." groups=["rooms"]]
 position = Vector2(984, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("7_qh630")
-script = ExtResource("8_uv8er")
+script = ExtResource("5_51w4t")
 label_font = ExtResource("6_ddgyg")
-max_employees = 3
+max_employees = 2
+display_name = "pig supremacy"
 
-[node name="leftback" type="Marker2D" parent="pig supremacy" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(-28, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="pig supremacy" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="pig supremacy" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="pig supremacy" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="pig supremacy" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="pig supremacy" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="2" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 
-[node name="optimized hot dogs" type="Sprite2D" parent="." groups=["rooms"]]
+[node name="3" type="Sprite2D" parent="." groups=["rooms"]]
 position = Vector2(1444, 854)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("10_u1jey")
-script = ExtResource("10_eqpf5")
+script = ExtResource("5_51w4t")
 label_font = ExtResource("6_ddgyg")
+max_employees = 2
+display_name = "optimized hot dogs"
 
-[node name="leftback" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="leftback" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(-27.2, 38.4)
 metadata/flip = true
 metadata/size = 0.75
 
-[node name="leftmiddle" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="leftmiddle" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(-40, 76)
 metadata/flip = true
 metadata/size = 0.8
 
-[node name="leftfront" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="leftfront" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(-55.2, 120.8)
 metadata/flip = true
 
-[node name="rightback" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="rightback" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(18.4, 37.6)
 metadata/size = 0.75
 
-[node name="rightmiddle" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="rightmiddle" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(33.6, 74.4)
 metadata/size = 0.8
 
-[node name="rightfront" type="Marker2D" parent="optimized hot dogs" groups=["seats"]]
+[node name="rightfront" type="Marker2D" parent="3" groups=["seats"]]
 position = Vector2(55.2, 126.4)
 scale = Vector2(0.999999, 0.999999)
 

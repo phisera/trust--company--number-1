@@ -14,11 +14,11 @@ const LOSE_SUB := "the inheritance is gone"
 var _popup: PanelContainer
 var _layer: CanvasLayer
 
-func show_win(next_level: PackedScene = null) -> void:
+func show_win(next_path: String = "") -> void:
 	var buttons: Array = []
-	if next_level:
-		buttons.append(["next level", func(): get_tree().change_scene_to_packed(next_level)])
-		buttons.append(["level select", _go_level_select])
+	if next_path != "":
+		buttons.append(["next level", func(): get_tree().change_scene_to_file(next_path)])
+	buttons.append(["level select", _go_level_select])
 	_show(WIN_TITLE, WIN_SUB, Color(0.18, 0.5, 0.25), buttons)
 
 func show_game_over() -> void:

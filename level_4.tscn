@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://dmjadsbaoibiq"]
+
+[ext_resource type="PackedScene" uid="uid://cgm42etbb7b2x" path="res://level_3.tscn" id="1_5pu08"]
+[ext_resource type="Texture2D" uid="uid://cyl8ejr0a3pva" path="res://assets/employees/writer/writer1/write1_dangle.png" id="2_aqy51"]
+[ext_resource type="Texture2D" uid="uid://glq00tc4x14u" path="res://assets/employees/typer/typer3/emp3_dangle.png" id="2_cicwn"]
+[ext_resource type="Texture2D" uid="uid://c5dpskhv4bxd7" path="res://assets/rooms/comp5.png" id="2_na6m6"]
+[ext_resource type="Texture2D" uid="uid://d3udrvl3nw3t6" path="res://assets/employees/typer/typer3/emp3_type_3.png" id="3_lj1an"]
+[ext_resource type="Texture2D" uid="uid://bfk17hn2mi6em" path="res://assets/rooms/comp2.png" id="3_rrs1j"]
+[ext_resource type="Texture2D" uid="uid://db4fkwapxy5oj" path="res://assets/employees/writer/writer1/write1_1.png" id="3_s24i2"]
+[ext_resource type="Texture2D" uid="uid://4qb6v7ukv2p6" path="res://assets/employees/writer/writer1/write1_2.png" id="4_66w8i"]
+[ext_resource type="Texture2D" uid="uid://brgs6enrrbsh1" path="res://assets/employees/typer/typer3/emp3_type_2.png" id="4_rrs1j"]
+[ext_resource type="Texture2D" uid="uid://bmbx3ddt1r4ah" path="res://assets/employees/writer/writer1/write1_3.png" id="5_80qnk"]
+[ext_resource type="Texture2D" uid="uid://5ch34yw6s7kw" path="res://assets/employees/typer/typer3/emp3_type_1.png" id="5_xxbfp"]
+[ext_resource type="Texture2D" uid="uid://codnarb4rsfmk" path="res://assets/employees/writer/writer1/write1_4.png" id="6_cicwn"]
+[ext_resource type="Script" uid="uid://03o30paaexpg" path="res://employee.gd" id="7_lj1an"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0yqnl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cicwn")
+}],
+"loop": false,
+"name": &"dangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lj1an")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rrs1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xxbfp")
+}],
+"loop": true,
+"name": &"type",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrs1j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_aqy51")
+}],
+"loop": false,
+"name": &"dangle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s24i2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_66w8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_80qnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cicwn")
+}],
+"loop": true,
+"name": &"type",
+"speed": 7.0
+}]
+
+[node name="level_4" instance=ExtResource("1_5pu08")]
+start_fortune = 400
+
+[node name="2" parent="." index="2"]
+texture = ExtResource("2_na6m6")
+max_employees = 4
+display_name = "deco-sponges"
+
+[node name="3" parent="." index="3"]
+texture = ExtResource("3_rrs1j")
+max_employees = 4
+display_name = "pig supremacy"
+
+[node name="employee2" parent="employees" index="1"]
+position = Vector2(1052, 1010)
+sprite_frames = SubResource("SpriteFrames_0yqnl")
+
+[node name="employee3" parent="employees" index="2"]
+position = Vector2(890, 976)
+
+[node name="employee4" parent="employees" index="3"]
+position = Vector2(1487, 879)
+
+[node name="employee5" parent="employees" index="4"]
+position = Vector2(929, 906)
+
+[node name="employee6" type="AnimatedSprite2D" parent="employees" index="5" groups=["employee"]]
+position = Vector2(1516, 1003)
+scale = Vector2(1, 1.021)
+sprite_frames = SubResource("SpriteFrames_rrs1j")
+animation = &"type"
+offset = Vector2(0, -30)
+script = ExtResource("7_lj1an")

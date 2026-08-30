@@ -3,11 +3,12 @@ extends Node2D
 const PROFIT_GOOD := 100
 const FEE_PER_COMPANY := 100
 const WASTE := 100
-const THIEF_COUNT := 1
 const SAFEHOUSE_NAME := "company #1"
 const RED := "#c0392b"
+const sfx_win := preload("res://assets/sound effects/good_response.ogg")
+const sfx_lose := preload("res://assets/sound effects/bad_response.ogg")
 
-@export var next_level: PackedScene
+@export_file("*.tscn") var next_level_path := ""
 @export var start_fortune := 500
 @export var statement_font: Font
 @export var statement_font_size := 40
@@ -15,8 +16,6 @@ const RED := "#c0392b"
 @export var money_font: Font
 @export var money_font_size := 40
 @export var tutorial_mode := false
-const sfx_win := preload("res://assets/sound effects/good_response.ogg")
-const sfx_lose := preload("res://assets/sound effects/bad_response.ogg")
 
 var _sfx: AudioStreamPlayer
 var fortune := 0
@@ -70,9 +69,9 @@ func end_quarter() -> void:
 		var bad: bool = room.name != SAFEHOUSE_NAME and thieves_in(room.name) > 0
 		var income := 0 if bad else PROFIT_GOOD
 		if bad:
-			doc += "[color=%s]%s[/color]" % [RED, _line(room.name, 0)]
+			doc += "[color=%s]%s[/color]" % [RED, _line(room.label_name(), 0)]
 		else:
-			doc += _line(room.name, income)
+			doc += _line(room.label_name(), income)
 		earned += income
 	var fees: int = rooms().size() * FEE_PER_COMPANY
 	doc += _line("fees", -fees)
@@ -97,7 +96,6 @@ func _update_money() -> void:
 		money_label.text = "$%d" % fortune
 
 func _win() -> void:
-	if sfx_win: _sfx.stream = sfx_win; _sfx.play()
 	_sfx.volume_db = -20.0
 	_sfx.stream = sfx_win
 	_sfx.play()
@@ -108,16 +106,23 @@ func _win() -> void:
 		await get_tree().create_timer(1.5).timeout
 	var popups := get_node_or_null("popups")
 	if popups:
-		popups.show_win(next_level)
+		popups.show_win(next_level_path)
 	else:
 		push_warning("No popups node in this scene")
-		if next_level:
-			get_tree().change_scene_to_packed(next_level)
+		if next_level_path != "":
+			get_tree().change_scene_to_file(next_level_path)
 
 func _lose() -> void:
-	if sfx_lose: _sfx.stream = sfx_lose; _sfx.play()
-	$popups.show_game_over()
-	
+	_sfx.volume_db = 0.0
+	_sfx.stream = sfx_lose
+	_sfx.play()
+	var popups := get_node_or_null("popups")
+	if popups:
+		popups.show_game_over()
+	else:
+		push_warning("No popups node in this scene")
+		get_tree().reload_current_scene()
+
 func _line(item: String, amount: int, signed := true) -> String:
 	var amt: String
 	if amount > 0 and signed: amt = "+$%d" % amount
@@ -135,22 +140,22 @@ func _build_paper() -> void:
 	style.set_border_width_all(6)
 	style.set_content_margin_all(40)
 	_paper.add_theme_stylebox_override("panel", style)
-
 	var col := VBoxContainer.new()
 	col.add_theme_constant_override("separation", 12)
 	_paper.add_child(col)
-
 	var top := HBoxContainer.new()
 	col.add_child(top)
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	top.add_child(spacer)
 	var close := Button.new()
+	close.name = "CloseStatement"
 	close.text = "X"
 	close.custom_minimum_size = Vector2(56, 48)
-	close.pressed.connect(func(): _paper.hide())
+	close.pressed.connect(func():
+		_paper.hide()
+		Tutorial.notify_statement_closed())
 	top.add_child(close)
-
 	_text = RichTextLabel.new()
 	_text.bbcode_enabled = true
 	_text.fit_content = true
@@ -165,7 +170,6 @@ func _build_paper() -> void:
 	_text.add_theme_font_size_override("normal_font_size", statement_font_size)
 	_text.add_theme_color_override("default_color", Color.BLACK)
 	col.add_child(_text)
-
 	_nav_row = HBoxContainer.new()
 	_nav_row.alignment = BoxContainer.ALIGNMENT_CENTER
 	_nav_row.add_theme_constant_override("separation", 32)
@@ -176,15 +180,11 @@ func _build_paper() -> void:
 		b.custom_minimum_size = Vector2(64, 52)
 		b.pressed.connect(_nav.bind(pair[1]))
 		_nav_row.add_child(b)
-
 	_paper.hide()
 	var layer := CanvasLayer.new()
 	layer.layer = 5
 	layer.add_child(_paper)
 	add_child(layer)
-	close.pressed.connect(func():
-		_paper.hide()
-		Tutorial.notify_statement_closed())
 
 func _nav(dir: int) -> void:
 	_show_at(_view + dir, true)
@@ -199,13 +199,11 @@ func _show_at(idx: int, with_nav: bool) -> void:
 	_view = clampi(idx, 0, history.size() - 1)
 	_text.text = history[_view]
 	_nav_row.visible = with_nav
-
 	var font: Font = _text.get_theme_font("normal_font")
 	var widest := 0.0
 	for l in _text.get_parsed_text().split("\n"):
 		widest = maxf(widest, font.get_string_size(l, HORIZONTAL_ALIGNMENT_LEFT, -1, statement_font_size).x)
 	_text.custom_minimum_size.x = widest + 8
-
 	_paper.reset_size()
 	_paper.show()
 	await get_tree().process_frame

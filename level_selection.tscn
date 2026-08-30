@@ -101,14 +101,4 @@ scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("3_rv05k")
 script = ExtResource("4_b6v5k")
 
-[connection signal="pressed" from="level_1_button" to="." method="_on_level_1_button_pressed"]
-[connection signal="pressed" from="level_2_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_3_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_4_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_5_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_6_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_7_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_8_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_9_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="pressed" from="level_10_button" to="." method="_on_level_2_button_pressed"]
-[connection signal="editor_state_changed" from="back" to="." method="_on_back_editor_state_changed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
