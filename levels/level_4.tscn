@@ -68,6 +68,7 @@ animations = [{
 }]
 
 [node name="level_4" instance=ExtResource("1_5pu08")]
+next_level_path = "uid://djqjwtu3kw5n4"
 start_fortune = 400
 
 [node name="2" parent="." index="2"]

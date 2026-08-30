@@ -1,21 +1,30 @@
-[gd_scene load_steps=17 format=3 uid="uid://bixp6bi34a5dq"]
+[gd_scene load_steps=26 format=3 uid="uid://bixp6bi34a5dq"]
 
 [ext_resource type="Script" uid="uid://bt28bsl4i71kx" path="res://level_selection.gd" id="1_au0oc"]
-[ext_resource type="Texture2D" uid="uid://dpvd1kyi4q833" path="res://assets/backgrounds/bg_sky.png" id="2_b6v5k"]
+[ext_resource type="Texture2D" uid="uid://cy2ufpdrnluup" path="res://assets/backgrounds/bg_level.png" id="2_82vgc"]
+[ext_resource type="Texture2D" uid="uid://bp8nd2l45p17b" path="res://assets/level buttons/1.png" id="3_ppcpj"]
 [ext_resource type="Texture2D" uid="uid://drxgh4wt2norm" path="res://assets/buttons/back button.png" id="3_rv05k"]
-[ext_resource type="Texture2D" uid="uid://0jk7ux3bw2q2" path="res://assets/buttons/levels.png" id="3_xfjqa"]
-[ext_resource type="Texture2D" uid="uid://30gncw5m047l" path="res://assets/level buttons/level_1.png" id="4_7ivfu"]
 [ext_resource type="Script" uid="uid://chu74jbyournr" path="res://back.gd" id="4_b6v5k"]
-[ext_resource type="Texture2D" uid="uid://ct0pi2oo6b2ud" path="res://assets/level buttons/level_2.png" id="5_kyqy1"]
-[ext_resource type="Texture2D" uid="uid://csrbhfdrhos53" path="res://assets/level buttons/level_3.png" id="6_5sfnj"]
-[ext_resource type="Texture2D" uid="uid://c6ndgh06hwa3j" path="res://assets/level buttons/level_4.png" id="7_b6sn7"]
-[ext_resource type="Texture2D" uid="uid://u2rogvdgon5l" path="res://assets/level buttons/level_5.png" id="8_0015f"]
-[ext_resource type="Texture2D" uid="uid://dxwhfh23sert" path="res://assets/level buttons/level_6.png" id="9_tcj11"]
-[ext_resource type="Texture2D" uid="uid://dfffxrg1cnk4a" path="res://assets/level buttons/level_7.png" id="10_qfiye"]
-[ext_resource type="Texture2D" uid="uid://cxjoegenqwnas" path="res://assets/level buttons/level_8.png" id="11_i3sc1"]
-[ext_resource type="Texture2D" uid="uid://bqjr6a4ksp53h" path="res://assets/level buttons/level_9.png" id="12_82vgc"]
-[ext_resource type="Texture2D" uid="uid://dp8hhq2eb7cpr" path="res://assets/level buttons/level_10.png" id="13_ppcpj"]
-[ext_resource type="Texture2D" uid="uid://bn3nddt652ux0" path="res://assets/level buttons/level_11.png" id="14_lphe5"]
+[ext_resource type="Texture2D" uid="uid://cu25kn43usdsc" path="res://assets/level buttons/2.png" id="4_lphe5"]
+[ext_resource type="Script" uid="uid://cq7g7ftm0hghr" path="res://levelbutton.gd" id="4_ppcpj"]
+[ext_resource type="Texture2D" uid="uid://cgb1om6451she" path="res://assets/level buttons/3.png" id="5_oal2d"]
+[ext_resource type="Texture2D" uid="uid://dtsqg88wdc8eh" path="res://assets/level buttons/4.png" id="6_kj6cg"]
+[ext_resource type="Texture2D" uid="uid://q42b0kpkwe8v" path="res://assets/level buttons/5.png" id="7_lyp5f"]
+[ext_resource type="Texture2D" uid="uid://cply74ngsmmgx" path="res://assets/level buttons/6.png" id="8_3qsfa"]
+[ext_resource type="Texture2D" uid="uid://c08pvbf7qr0pc" path="res://assets/level buttons/7.png" id="9_nchy3"]
+[ext_resource type="Texture2D" uid="uid://c2504oc1sul8p" path="res://assets/level buttons/8.png" id="10_0ejh6"]
+[ext_resource type="Texture2D" uid="uid://o7lip7rbp5et" path="res://assets/level buttons/9.png" id="11_ihh7s"]
+[ext_resource type="Texture2D" uid="uid://dgexcy7s5nakt" path="res://assets/level buttons/10.png" id="12_2bjll"]
+[ext_resource type="Texture2D" uid="uid://dmk0mtugnvbs8" path="res://assets/level buttons/11.png" id="13_ald0f"]
+[ext_resource type="Texture2D" uid="uid://djjt3laokk1xk" path="res://assets/level buttons/12.png" id="14_mx2e4"]
+[ext_resource type="Texture2D" uid="uid://br7di3ysykubx" path="res://assets/level buttons/13.png" id="15_4fgkv"]
+[ext_resource type="Texture2D" uid="uid://ft2fohu0pnvd" path="res://assets/level buttons/14.png" id="16_joisu"]
+[ext_resource type="Texture2D" uid="uid://1tto8wpgesm" path="res://assets/level buttons/15.png" id="17_n0wa8"]
+[ext_resource type="Texture2D" uid="uid://bwr8722fspnbf" path="res://assets/level buttons/16.png" id="18_f8ohj"]
+[ext_resource type="Texture2D" uid="uid://dhaf88rbs3ufa" path="res://assets/level buttons/17.png" id="19_qob5x"]
+[ext_resource type="Texture2D" uid="uid://btm3iqymy5012" path="res://assets/level buttons/18.png" id="20_60s64"]
+[ext_resource type="Texture2D" uid="uid://dhy7c7pq74uon" path="res://assets/level buttons/19.png" id="21_dld8n"]
+[ext_resource type="Texture2D" uid="uid://mlyfji5rsijn" path="res://assets/level buttons/20.png" id="22_8unpt"]
 
 [node name="level_selection" type="Node"]
 script = ExtResource("1_au0oc")
@@ -23,155 +32,169 @@ script = ExtResource("1_au0oc")
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1918.0
 offset_bottom = 1075.0
-texture = ExtResource("2_b6v5k")
+texture = ExtResource("2_82vgc")
 metadata/_edit_use_anchors_ = true
 
-[node name="levels" type="Sprite2D" parent="."]
-position = Vector2(968, 283)
-scale = Vector2(1.84643, 1.71643)
-texture = ExtResource("3_xfjqa")
-
 [node name="level_1_button" type="TextureButton" parent="."]
-offset_left = 63.0
-offset_top = 215.0
-offset_right = 143.0
-offset_bottom = 279.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("4_7ivfu")
+offset_left = -132.0
+offset_top = 15.0
+offset_right = 368.0
+offset_bottom = 515.0
+texture_normal = ExtResource("3_ppcpj")
+stretch_mode = 5
+script = ExtResource("4_ppcpj")
 
 [node name="level_2_button" type="TextureButton" parent="."]
-offset_left = 290.0
-offset_top = 216.0
-offset_right = 370.0
-offset_bottom = 280.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("5_kyqy1")
+offset_left = 114.0
+offset_top = 107.0
+offset_right = 614.0
+offset_bottom = 607.0
+texture_normal = ExtResource("4_lphe5")
+script = ExtResource("4_ppcpj")
 
 [node name="level_3_button" type="TextureButton" parent="."]
-offset_left = 525.0
-offset_top = 215.0
-offset_right = 605.0
-offset_bottom = 279.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("6_5sfnj")
+offset_left = 345.0
+offset_top = 104.0
+offset_right = 845.0
+offset_bottom = 604.0
+texture_normal = ExtResource("5_oal2d")
+script = ExtResource("4_ppcpj")
 
 [node name="level_4_button" type="TextureButton" parent="."]
-offset_left = 1248.0
-offset_top = 206.0
-offset_right = 1598.0
-offset_bottom = 556.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("7_b6sn7")
+offset_left = 576.0
+offset_top = 109.0
+offset_right = 1076.0
+offset_bottom = 609.0
+texture_normal = ExtResource("6_kj6cg")
+script = ExtResource("4_ppcpj")
 
 [node name="level_5_button" type="TextureButton" parent="."]
-offset_left = 1493.0
-offset_top = 203.0
-offset_right = 1843.0
-offset_bottom = 553.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("8_0015f")
+offset_left = 808.0
+offset_top = 112.0
+offset_right = 1308.0
+offset_bottom = 612.0
+texture_normal = ExtResource("7_lyp5f")
+script = ExtResource("4_ppcpj")
 
 [node name="level_6_button" type="TextureButton" parent="."]
-offset_left = 1731.0
-offset_top = 202.0
-offset_right = 2081.0
-offset_bottom = 552.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("9_tcj11")
+offset_left = 1060.0
+offset_top = 124.0
+offset_right = 1560.0
+offset_bottom = 624.0
+texture_normal = ExtResource("8_3qsfa")
+script = ExtResource("4_ppcpj")
 
 [node name="level_7_button" type="TextureButton" parent="."]
-offset_left = 61.0
-offset_top = 411.0
-offset_right = 141.0
-offset_bottom = 475.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("10_qfiye")
+offset_left = 1290.0
+offset_top = 108.0
+offset_right = 1790.0
+offset_bottom = 608.0
+texture_normal = ExtResource("9_nchy3")
+script = ExtResource("4_ppcpj")
 
 [node name="level_8_button" type="TextureButton" parent="."]
-offset_left = 289.0
-offset_top = 414.0
-offset_right = 369.0
-offset_bottom = 478.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("11_i3sc1")
+offset_left = 1539.0
+offset_top = 109.0
+offset_right = 2039.0
+offset_bottom = 609.0
+texture_normal = ExtResource("10_0ejh6")
+script = ExtResource("4_ppcpj")
 
 [node name="level_9_button" type="TextureButton" parent="."]
-offset_left = 521.0
-offset_top = 414.0
-offset_right = 871.0
-offset_bottom = 764.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("12_82vgc")
+offset_left = -114.0
+offset_top = 332.0
+offset_right = 386.0
+offset_bottom = 832.0
+texture_normal = ExtResource("11_ihh7s")
+script = ExtResource("4_ppcpj")
 
 [node name="level_10_button" type="TextureButton" parent="."]
-offset_left = 745.0
-offset_top = 415.0
-offset_right = 825.0
-offset_bottom = 479.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("13_ppcpj")
+offset_left = 116.0
+offset_top = 336.0
+offset_right = 616.0
+offset_bottom = 836.0
+texture_normal = ExtResource("12_2bjll")
+script = ExtResource("4_ppcpj")
 
 [node name="level_11_button" type="TextureButton" parent="."]
-offset_left = 987.0
-offset_top = 413.0
-offset_right = 1067.0
-offset_bottom = 477.0
-scale = Vector2(0.4, 0.4)
-texture_normal = ExtResource("14_lphe5")
+offset_left = 350.0
+offset_top = 338.0
+offset_right = 850.0
+offset_bottom = 838.0
+texture_normal = ExtResource("13_ald0f")
+script = ExtResource("4_ppcpj")
 
 [node name="level_12_button" type="TextureButton" parent="."]
-offset_left = 1248.0
-offset_top = 410.0
-offset_right = 1328.0
-offset_bottom = 474.0
+offset_left = 578.0
+offset_top = 342.0
+offset_right = 1078.0
+offset_bottom = 842.0
+texture_normal = ExtResource("14_mx2e4")
+script = ExtResource("4_ppcpj")
 
 [node name="level_13_button" type="TextureButton" parent="."]
-offset_left = 1494.0
-offset_top = 412.0
-offset_right = 1574.0
-offset_bottom = 476.0
+offset_left = 810.0
+offset_top = 344.0
+offset_right = 1310.0
+offset_bottom = 844.0
+texture_normal = ExtResource("15_4fgkv")
+script = ExtResource("4_ppcpj")
 
 [node name="level_14_button" type="TextureButton" parent="."]
-offset_left = 1732.0
-offset_top = 409.0
-offset_right = 1812.0
-offset_bottom = 473.0
+offset_left = 1046.0
+offset_top = 344.0
+offset_right = 1546.0
+offset_bottom = 844.0
+texture_normal = ExtResource("16_joisu")
+script = ExtResource("4_ppcpj")
 
 [node name="level_15_button" type="TextureButton" parent="."]
-offset_left = 63.0
-offset_top = 613.0
-offset_right = 143.0
-offset_bottom = 677.0
+offset_left = 1295.0
+offset_top = 347.0
+offset_right = 1795.0
+offset_bottom = 847.0
+texture_normal = ExtResource("17_n0wa8")
+script = ExtResource("4_ppcpj")
 
 [node name="level_16_button" type="TextureButton" parent="."]
-offset_left = 291.0
-offset_top = 616.0
-offset_right = 371.0
-offset_bottom = 680.0
+offset_left = 1535.0
+offset_top = 350.0
+offset_right = 2035.0
+offset_bottom = 850.0
+texture_normal = ExtResource("18_f8ohj")
+script = ExtResource("4_ppcpj")
 
 [node name="level_17_button" type="TextureButton" parent="."]
-offset_left = 523.0
-offset_top = 615.0
-offset_right = 603.0
-offset_bottom = 679.0
+offset_left = -109.0
+offset_top = 565.0
+offset_right = 391.0
+offset_bottom = 1065.0
+texture_normal = ExtResource("19_qob5x")
+script = ExtResource("4_ppcpj")
 
 [node name="level_18_button" type="TextureButton" parent="."]
-offset_left = 747.0
-offset_top = 617.0
-offset_right = 827.0
-offset_bottom = 681.0
+offset_left = 116.0
+offset_top = 559.0
+offset_right = 616.0
+offset_bottom = 1059.0
+texture_normal = ExtResource("20_60s64")
+script = ExtResource("4_ppcpj")
 
 [node name="level_19_button" type="TextureButton" parent="."]
-offset_left = 989.0
-offset_top = 615.0
-offset_right = 1069.0
-offset_bottom = 679.0
+offset_left = 352.0
+offset_top = 562.0
+offset_right = 852.0
+offset_bottom = 1062.0
+texture_normal = ExtResource("21_dld8n")
+script = ExtResource("4_ppcpj")
 
 [node name="level_20_button" type="TextureButton" parent="."]
-offset_left = 1248.0
-offset_top = 619.0
-offset_right = 1328.0
-offset_bottom = 683.0
+offset_left = 587.0
+offset_top = 558.0
+offset_right = 1087.0
+offset_bottom = 1058.0
+texture_normal = ExtResource("22_8unpt")
+script = ExtResource("4_ppcpj")
 
 [node name="back" type="TextureButton" parent="."]
 offset_left = 4.0
