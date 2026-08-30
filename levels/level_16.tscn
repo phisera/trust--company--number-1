@@ -372,7 +372,7 @@ animations = [{
 [node name="level_16" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_t0lr5")
 next_level_path = "uid://dmjadsbaoibiq"
-start_fortune = 1500
+start_fortune = 1300
 statement_font = ExtResource("2_wpona")
 money_label = NodePath("blank/current money")
 money_font = ExtResource("3_cu2af")
@@ -655,7 +655,7 @@ offset_bottom = 72.1371
 y_sort_enabled = true
 
 [node name="employee" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(411, 957)
+position = Vector2(1498, 969)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_potur")
 animation = &"type"
@@ -671,14 +671,13 @@ offset = Vector2(0, -30)
 script = ExtResource("25_kuay4")
 
 [node name="employee3" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1060, 950)
+position = Vector2(1488, 349)
 scale = Vector2(1, 1.02082)
 sprite_frames = SubResource("SpriteFrames_sjeoa")
 animation = &"point"
 offset = Vector2(0, -30)
 script = ExtResource("25_kuay4")
 work_anim = 2
-is_thief = true
 
 [node name="employee4" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(931, 859)
@@ -690,12 +689,13 @@ script = ExtResource("25_kuay4")
 work_anim = 1
 
 [node name="employee5" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1347, 986)
+position = Vector2(993, 884)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_wp21n")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_kuay4")
+is_thief = true
 
 [node name="employee6" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(1380, 844)
@@ -722,6 +722,7 @@ animation = &"dangle"
 offset = Vector2(0, -30)
 script = ExtResource("25_kuay4")
 work_anim = 2
+is_thief = true
 
 [node name="employee9" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(603, 989)
@@ -730,7 +731,6 @@ sprite_frames = SubResource("SpriteFrames_83ef2")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_kuay4")
-is_thief = true
 
 [node name="employee10" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(1518, 469)
@@ -751,7 +751,7 @@ script = ExtResource("25_kuay4")
 work_anim = 1
 
 [node name="employee12" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(918, 357)
+position = Vector2(457, 899)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_yc2rx")
 animation = &"dangle"
