@@ -370,7 +370,6 @@ animations = [{
 }]
 
 [node name="level_17" type="Node2D" node_paths=PackedStringArray("money_label")]
-position = Vector2(0, 1)
 script = ExtResource("1_5umbu")
 next_level_path = "uid://c04tj0xylwloq"
 start_fortune = 2400

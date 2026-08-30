@@ -369,11 +369,10 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="level_17" type="Node2D" node_paths=PackedStringArray("money_label")]
-position = Vector2(0, 1)
+[node name="level_18" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_l2v5t")
-next_level_path = "uid://dmjadsbaoibiq"
-start_fortune = 2400
+next_level_path = "uid://d3y326ccu2c2n"
+start_fortune = 2600
 statement_font = ExtResource("2_ipmor")
 money_label = NodePath("blank/current money")
 money_font = ExtResource("3_u7d02")
@@ -433,7 +432,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("8_kqnvb")
 script = ExtResource("7_rhuv4")
 label_font = ExtResource("3_u7d02")
-max_employees = 4
+max_employees = 5
 display_name = "shoe-dini shoes"
 
 [node name="leftback" type="Marker2D" parent="2" groups=["seats"]]
@@ -468,7 +467,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("9_kkklh")
 script = ExtResource("7_rhuv4")
 label_font = ExtResource("3_u7d02")
-max_employees = 4
+max_employees = 5
 display_name = "pig supremacy"
 
 [node name="leftback" type="Marker2D" parent="3" groups=["seats"]]
@@ -503,7 +502,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("10_ygdld")
 script = ExtResource("7_rhuv4")
 label_font = ExtResource("3_u7d02")
-max_employees = 4
+max_employees = 5
 display_name = "innovative hot dogs"
 
 [node name="leftback" type="Marker2D" parent="4" groups=["seats"]]
@@ -538,7 +537,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("11_7emmy")
 script = ExtResource("7_rhuv4")
 label_font = ExtResource("3_u7d02")
-max_employees = 4
+max_employees = 5
 display_name = "quack franchise"
 
 [node name="leftback" type="Marker2D" parent="5" groups=["seats"]]
@@ -573,7 +572,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("12_2ag6o")
 script = ExtResource("7_rhuv4")
 label_font = ExtResource("3_u7d02")
-max_employees = 4
+max_employees = 5
 display_name = "deco-sponge"
 
 [node name="leftback" type="Marker2D" parent="6" groups=["seats"]]
@@ -656,7 +655,7 @@ offset_bottom = 72.1371
 y_sort_enabled = true
 
 [node name="employee" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1498, 969)
+position = Vector2(1498, 970)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_potur")
 animation = &"type"
@@ -664,12 +663,13 @@ offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
 
 [node name="employee2" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(564, 876)
+position = Vector2(1357, 427)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_51i6r")
 animation = &"dangle"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
+is_thief = true
 
 [node name="employee3" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(1488, 349)
@@ -681,7 +681,7 @@ script = ExtResource("25_yi5ma")
 work_anim = 2
 
 [node name="employee4" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(931, 855)
+position = Vector2(931, 857)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_4l6ta")
 animation = &"sleep"
@@ -697,10 +697,9 @@ sprite_frames = SubResource("SpriteFrames_wp21n")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
-is_thief = true
 
 [node name="employee6" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1380, 844)
+position = Vector2(1349, 925)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_2otwc")
 animation = &"dangle"
@@ -717,14 +716,13 @@ script = ExtResource("25_yi5ma")
 work_anim = 1
 
 [node name="employee8" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1365, 416)
+position = Vector2(420, 920)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_0fl7h")
 animation = &"dangle"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
 work_anim = 2
-is_thief = true
 
 [node name="employee9" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
 position = Vector2(603, 989)
@@ -733,18 +731,17 @@ sprite_frames = SubResource("SpriteFrames_83ef2")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
-is_thief = true
 
 [node name="employee10" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-position = Vector2(1334, 977)
+position = Vector2(1022, 364)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_2hv7i")
 animation = &"type"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
+is_thief = true
 
 [node name="employee11" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-visible = false
 position = Vector2(1087, 468)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_sht87")
@@ -752,17 +749,15 @@ animation = &"sleep"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
 work_anim = 1
-enabled = false
 
 [node name="employee12" type="AnimatedSprite2D" parent="employees" groups=["employee"]]
-visible = false
-position = Vector2(457, 899)
+position = Vector2(911, 403)
 scale = Vector2(1, 1.021)
 sprite_frames = SubResource("SpriteFrames_yc2rx")
 animation = &"dangle"
 offset = Vector2(0, -30)
 script = ExtResource("25_yi5ma")
-enabled = false
+is_thief = true
 
 [node name="popups" type="Node" parent="."]
 script = ExtResource("70_q07c0")
