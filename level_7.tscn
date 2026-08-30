@@ -200,9 +200,9 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="level_6" type="Node2D" node_paths=PackedStringArray("money_label")]
+[node name="level_7" type="Node2D" node_paths=PackedStringArray("money_label")]
 script = ExtResource("1_l53kh")
-next_level_path = "uid://dmjadsbaoibiq"
+next_level_path = "uid://c7vyynf2rvsn"
 start_fortune = 1000
 statement_font = ExtResource("2_3vq5e")
 money_label = NodePath("blank/current money")
